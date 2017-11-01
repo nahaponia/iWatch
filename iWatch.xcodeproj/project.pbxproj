@@ -1,0 +1,951 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		188E1564A76218D55E2ED41E /* Pods_iWatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606CD1211170828DB9D61D30 /* Pods_iWatchTests.framework */; };
+		1A65889878DE5905C5544534 /* Pods_iWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3259853083CE6D593562CA31 /* Pods_iWatch.framework */; };
+		A33E41EDA24F6D00A1DD9E62 /* Pods_iWatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E668653D3EBEA60D7D22620 /* Pods_iWatchUITests.framework */; };
+		FE16AB511F7CF6B200440CE8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16AB501F7CF6B200440CE8 /* CoreDataManager.swift */; };
+		FE16AB531F7D138000440CE8 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16AB521F7D138000440CE8 /* DataStore.swift */; };
+		FE2226AB1F743B6D00BAFCE6 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2226AA1F743B6D00BAFCE6 /* ColorPalette.swift */; };
+		FE30F7E41F746193008227E4 /* Genre.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE30F7E21F746193008227E4 /* Genre.storyboard */; };
+		FE30F7E61F7462FB008227E4 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE30F7E51F7462FB008227E4 /* Search.storyboard */; };
+		FE30F7E81F769B17008227E4 /* GenresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30F7E71F769B17008227E4 /* GenresViewController.swift */; };
+		FE4572451F838D9E00EADB33 /* GenresDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4572441F838D9E00EADB33 /* GenresDetailViewController.swift */; };
+		FE54A7C61F76A11D0012E601 /* GenreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE54A7C41F76A11D0012E601 /* GenreTableViewCell.swift */; };
+		FE54A7C71F76A11D0012E601 /* GenreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE54A7C51F76A11D0012E601 /* GenreTableViewCell.xib */; };
+		FE6F78291F6BDF870089A9BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6F78281F6BDF870089A9BB /* AppDelegate.swift */; };
+		FE6F782E1F6BDF870089A9BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE6F782C1F6BDF870089A9BB /* Main.storyboard */; };
+		FE6F78311F6BDF870089A9BB /* iWatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE6F782F1F6BDF870089A9BB /* iWatch.xcdatamodeld */; };
+		FE6F78331F6BDF870089A9BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE6F78321F6BDF870089A9BB /* Assets.xcassets */; };
+		FE6F78361F6BDF870089A9BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE6F78341F6BDF870089A9BB /* LaunchScreen.storyboard */; };
+		FE6F78411F6BDF870089A9BB /* iWatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6F78401F6BDF870089A9BB /* iWatchTests.swift */; };
+		FE6F784C1F6BDF870089A9BB /* iWatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6F784B1F6BDF870089A9BB /* iWatchUITests.swift */; };
+		FE6F785F1F6BE21C0089A9BB /* PopularMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6F785E1F6BE21C0089A9BB /* PopularMoviesViewController.swift */; };
+		FE6F78631F6BE2D20089A9BB /* GetListMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6F78621F6BE2D20089A9BB /* GetListMovies.swift */; };
+		FE6F78651F6BE6E80089A9BB /* AllMoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6F78641F6BE6E80089A9BB /* AllMoviesModel.swift */; };
+		FE6F78671F6BE7A80089A9BB /* ApiUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6F78661F6BE7A80089A9BB /* ApiUrls.swift */; };
+		FE81B15F1F79468B00A3D446 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE81B15E1F79468B00A3D446 /* SearchViewController.swift */; };
+		FE906A9A1F794A300019C0B0 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE906A981F794A300019C0B0 /* SearchTableViewCell.swift */; };
+		FE906A9B1F794A300019C0B0 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE906A991F794A300019C0B0 /* SearchTableViewCell.xib */; };
+		FEAD13441F6E8BF7003824CA /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAD13421F6E8BF7003824CA /* MovieCollectionViewCell.swift */; };
+		FEAD13451F6E8BF7003824CA /* MovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEAD13431F6E8BF7003824CA /* MovieCollectionViewCell.xib */; };
+		FEEC4BD41F7011FE0098C492 /* Popular.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEEC4BD21F7011FE0098C492 /* Popular.storyboard */; };
+		FEEC4BD61F7165590098C492 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEC4BD51F7165590098C492 /* MovieDetailViewController.swift */; };
+		FEFFCF7E1F7D7DDC00C144B8 /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFFCF7D1F7D7DDC00C144B8 /* PopularViewController.swift */; };
+		FEFFCF801F7D7DEA00C144B8 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFFCF7F1F7D7DEA00C144B8 /* FavouriteViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FE6F783D1F6BDF870089A9BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE6F781D1F6BDF870089A9BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FE6F78241F6BDF870089A9BB;
+			remoteInfo = iWatch;
+		};
+		FE6F78481F6BDF870089A9BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE6F781D1F6BDF870089A9BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FE6F78241F6BDF870089A9BB;
+			remoteInfo = iWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1E666036B7FB93D62A77F192 /* Pods-iWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWatch.release.xcconfig"; path = "Pods/Target Support Files/Pods-iWatch/Pods-iWatch.release.xcconfig"; sourceTree = "<group>"; };
+		2ABD9BB6E9BDD9B076D57DC7 /* Pods-iWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWatch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iWatch/Pods-iWatch.debug.xcconfig"; sourceTree = "<group>"; };
+		2E668653D3EBEA60D7D22620 /* Pods_iWatchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iWatchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3259853083CE6D593562CA31 /* Pods_iWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		327C6545C61A53AD9217B1E1 /* Pods-iWatchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWatchUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iWatchUITests/Pods-iWatchUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3A8D145D33A17E5714ABCCB9 /* Pods-iWatchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWatchUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iWatchUITests/Pods-iWatchUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		606CD1211170828DB9D61D30 /* Pods_iWatchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iWatchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6695F37E88DAAAA93E37C28C /* Pods-iWatchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWatchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iWatchTests/Pods-iWatchTests.release.xcconfig"; sourceTree = "<group>"; };
+		9CEBFAC11DDA072D4C6C945A /* Pods-iWatchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWatchTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iWatchTests/Pods-iWatchTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FE16AB501F7CF6B200440CE8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		FE16AB521F7D138000440CE8 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		FE2226AA1F743B6D00BAFCE6 /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		FE30F7E31F746193008227E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Genre.storyboard; sourceTree = "<group>"; };
+		FE30F7E51F7462FB008227E4 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		FE30F7E71F769B17008227E4 /* GenresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenresViewController.swift; sourceTree = "<group>"; };
+		FE4572441F838D9E00EADB33 /* GenresDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresDetailViewController.swift; sourceTree = "<group>"; };
+		FE54A7C41F76A11D0012E601 /* GenreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreTableViewCell.swift; sourceTree = "<group>"; };
+		FE54A7C51F76A11D0012E601 /* GenreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GenreTableViewCell.xib; sourceTree = "<group>"; };
+		FE6F78251F6BDF870089A9BB /* iWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE6F78281F6BDF870089A9BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FE6F782D1F6BDF870089A9BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FE6F78301F6BDF870089A9BB /* iWatch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iWatch.xcdatamodel; sourceTree = "<group>"; };
+		FE6F78321F6BDF870089A9BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FE6F78351F6BDF870089A9BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FE6F78371F6BDF870089A9BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE6F783C1F6BDF870089A9BB /* iWatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iWatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE6F78401F6BDF870089A9BB /* iWatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iWatchTests.swift; sourceTree = "<group>"; };
+		FE6F78421F6BDF870089A9BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE6F78471F6BDF870089A9BB /* iWatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iWatchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE6F784B1F6BDF870089A9BB /* iWatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iWatchUITests.swift; sourceTree = "<group>"; };
+		FE6F784D1F6BDF870089A9BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE6F785E1F6BE21C0089A9BB /* PopularMoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularMoviesViewController.swift; sourceTree = "<group>"; };
+		FE6F78621F6BE2D20089A9BB /* GetListMovies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetListMovies.swift; sourceTree = "<group>"; };
+		FE6F78641F6BE6E80089A9BB /* AllMoviesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllMoviesModel.swift; sourceTree = "<group>"; };
+		FE6F78661F6BE7A80089A9BB /* ApiUrls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiUrls.swift; sourceTree = "<group>"; };
+		FE81B15E1F79468B00A3D446 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		FE906A981F794A300019C0B0 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		FE906A991F794A300019C0B0 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
+		FEAD13421F6E8BF7003824CA /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
+		FEAD13431F6E8BF7003824CA /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
+		FEEC4BD31F7011FE0098C492 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Popular.storyboard; sourceTree = "<group>"; };
+		FEEC4BD51F7165590098C492 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		FEFFCF7D1F7D7DDC00C144B8 /* PopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
+		FEFFCF7F1F7D7DEA00C144B8 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FE6F78221F6BDF870089A9BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A65889878DE5905C5544534 /* Pods_iWatch.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE6F78391F6BDF870089A9BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				188E1564A76218D55E2ED41E /* Pods_iWatchTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE6F78441F6BDF870089A9BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A33E41EDA24F6D00A1DD9E62 /* Pods_iWatchUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		44CE5C48B1F2535DE289B4E4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2ABD9BB6E9BDD9B076D57DC7 /* Pods-iWatch.debug.xcconfig */,
+				1E666036B7FB93D62A77F192 /* Pods-iWatch.release.xcconfig */,
+				9CEBFAC11DDA072D4C6C945A /* Pods-iWatchTests.debug.xcconfig */,
+				6695F37E88DAAAA93E37C28C /* Pods-iWatchTests.release.xcconfig */,
+				3A8D145D33A17E5714ABCCB9 /* Pods-iWatchUITests.debug.xcconfig */,
+				327C6545C61A53AD9217B1E1 /* Pods-iWatchUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		ECCD9E55BB6254E4BBEEB838 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3259853083CE6D593562CA31 /* Pods_iWatch.framework */,
+				606CD1211170828DB9D61D30 /* Pods_iWatchTests.framework */,
+				2E668653D3EBEA60D7D22620 /* Pods_iWatchUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FE16AB4F1F7CF69100440CE8 /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				FE16AB501F7CF6B200440CE8 /* CoreDataManager.swift */,
+				FE16AB521F7D138000440CE8 /* DataStore.swift */,
+				FE6F782F1F6BDF870089A9BB /* iWatch.xcdatamodeld */,
+			);
+			name = DataStore;
+			sourceTree = "<group>";
+		};
+		FE6F781C1F6BDF870089A9BB = {
+			isa = PBXGroup;
+			children = (
+				FE6F78271F6BDF870089A9BB /* iWatch */,
+				FE6F783F1F6BDF870089A9BB /* iWatchTests */,
+				FE6F784A1F6BDF870089A9BB /* iWatchUITests */,
+				FE6F78261F6BDF870089A9BB /* Products */,
+				44CE5C48B1F2535DE289B4E4 /* Pods */,
+				ECCD9E55BB6254E4BBEEB838 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FE6F78261F6BDF870089A9BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FE6F78251F6BDF870089A9BB /* iWatch.app */,
+				FE6F783C1F6BDF870089A9BB /* iWatchTests.xctest */,
+				FE6F78471F6BDF870089A9BB /* iWatchUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FE6F78271F6BDF870089A9BB /* iWatch */ = {
+			isa = PBXGroup;
+			children = (
+				FE16AB4F1F7CF69100440CE8 /* DataStore */,
+				FE6F785D1F6BDFB00089A9BB /* SupportingFiles */,
+				FE6F785C1F6BDFA30089A9BB /* StoryBoard */,
+				FE6F785B1F6BDF9F0089A9BB /* Model */,
+				FE6F785A1F6BDF990089A9BB /* View */,
+				FE6F78591F6BDF8F0089A9BB /* Controller */,
+				FE6F78321F6BDF870089A9BB /* Assets.xcassets */,
+			);
+			path = iWatch;
+			sourceTree = "<group>";
+		};
+		FE6F783F1F6BDF870089A9BB /* iWatchTests */ = {
+			isa = PBXGroup;
+			children = (
+				FE6F78401F6BDF870089A9BB /* iWatchTests.swift */,
+				FE6F78421F6BDF870089A9BB /* Info.plist */,
+			);
+			path = iWatchTests;
+			sourceTree = "<group>";
+		};
+		FE6F784A1F6BDF870089A9BB /* iWatchUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FE6F784B1F6BDF870089A9BB /* iWatchUITests.swift */,
+				FE6F784D1F6BDF870089A9BB /* Info.plist */,
+			);
+			path = iWatchUITests;
+			sourceTree = "<group>";
+		};
+		FE6F78591F6BDF8F0089A9BB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FEFFCF7C1F7D7DAC00C144B8 /* PopularMovies */,
+				FE6F785E1F6BE21C0089A9BB /* PopularMoviesViewController.swift */,
+				FEEC4BD51F7165590098C492 /* MovieDetailViewController.swift */,
+				FE30F7E71F769B17008227E4 /* GenresViewController.swift */,
+				FE81B15E1F79468B00A3D446 /* SearchViewController.swift */,
+				FE4572441F838D9E00EADB33 /* GenresDetailViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		FE6F785A1F6BDF990089A9BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FEAD13421F6E8BF7003824CA /* MovieCollectionViewCell.swift */,
+				FEAD13431F6E8BF7003824CA /* MovieCollectionViewCell.xib */,
+				FE54A7C41F76A11D0012E601 /* GenreTableViewCell.swift */,
+				FE54A7C51F76A11D0012E601 /* GenreTableViewCell.xib */,
+				FE906A981F794A300019C0B0 /* SearchTableViewCell.swift */,
+				FE906A991F794A300019C0B0 /* SearchTableViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		FE6F785B1F6BDF9F0089A9BB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FE6F78621F6BE2D20089A9BB /* GetListMovies.swift */,
+				FE6F78641F6BE6E80089A9BB /* AllMoviesModel.swift */,
+				FE6F78661F6BE7A80089A9BB /* ApiUrls.swift */,
+				FE2226AA1F743B6D00BAFCE6 /* ColorPalette.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		FE6F785C1F6BDFA30089A9BB /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				FE6F782C1F6BDF870089A9BB /* Main.storyboard */,
+				FE30F7E51F7462FB008227E4 /* Search.storyboard */,
+				FEEC4BD21F7011FE0098C492 /* Popular.storyboard */,
+				FE30F7E21F746193008227E4 /* Genre.storyboard */,
+				FE6F78341F6BDF870089A9BB /* LaunchScreen.storyboard */,
+			);
+			name = StoryBoard;
+			sourceTree = "<group>";
+		};
+		FE6F785D1F6BDFB00089A9BB /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				FE6F78281F6BDF870089A9BB /* AppDelegate.swift */,
+				FE6F78371F6BDF870089A9BB /* Info.plist */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		FEFFCF7C1F7D7DAC00C144B8 /* PopularMovies */ = {
+			isa = PBXGroup;
+			children = (
+				FEFFCF7D1F7D7DDC00C144B8 /* PopularViewController.swift */,
+				FEFFCF7F1F7D7DEA00C144B8 /* FavouriteViewController.swift */,
+			);
+			name = PopularMovies;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FE6F78241F6BDF870089A9BB /* iWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE6F78501F6BDF870089A9BB /* Build configuration list for PBXNativeTarget "iWatch" */;
+			buildPhases = (
+				3360691CD83BB8ACE7A8350A /* [CP] Check Pods Manifest.lock */,
+				FE6F78211F6BDF870089A9BB /* Sources */,
+				FE6F78221F6BDF870089A9BB /* Frameworks */,
+				FE6F78231F6BDF870089A9BB /* Resources */,
+				628ACE2F94837DF272450A8C /* [CP] Embed Pods Frameworks */,
+				1B89267FA87AF0B2B8F09E1C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iWatch;
+			productName = iWatch;
+			productReference = FE6F78251F6BDF870089A9BB /* iWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FE6F783B1F6BDF870089A9BB /* iWatchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE6F78531F6BDF870089A9BB /* Build configuration list for PBXNativeTarget "iWatchTests" */;
+			buildPhases = (
+				3C53CDE5E147B5511A60362C /* [CP] Check Pods Manifest.lock */,
+				FE6F78381F6BDF870089A9BB /* Sources */,
+				FE6F78391F6BDF870089A9BB /* Frameworks */,
+				FE6F783A1F6BDF870089A9BB /* Resources */,
+				86A97CA7E661D9129811D52D /* [CP] Embed Pods Frameworks */,
+				C5C7E6881398AA176940E937 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FE6F783E1F6BDF870089A9BB /* PBXTargetDependency */,
+			);
+			name = iWatchTests;
+			productName = iWatchTests;
+			productReference = FE6F783C1F6BDF870089A9BB /* iWatchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FE6F78461F6BDF870089A9BB /* iWatchUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE6F78561F6BDF870089A9BB /* Build configuration list for PBXNativeTarget "iWatchUITests" */;
+			buildPhases = (
+				8F21A78FA05343A16B56FB0A /* [CP] Check Pods Manifest.lock */,
+				FE6F78431F6BDF870089A9BB /* Sources */,
+				FE6F78441F6BDF870089A9BB /* Frameworks */,
+				FE6F78451F6BDF870089A9BB /* Resources */,
+				F28C8F06251232683EDB71D9 /* [CP] Copy Pods Resources */,
+				1E58CC20CDF9672BD826BF47 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FE6F78491F6BDF870089A9BB /* PBXTargetDependency */,
+			);
+			name = iWatchUITests;
+			productName = iWatchUITests;
+			productReference = FE6F78471F6BDF870089A9BB /* iWatchUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FE6F781D1F6BDF870089A9BB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = Maxim;
+				TargetAttributes = {
+					FE6F78241F6BDF870089A9BB = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = E6C4YFV8FJ;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+					FE6F783B1F6BDF870089A9BB = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = SU7Z8X6W4R;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FE6F78241F6BDF870089A9BB;
+					};
+					FE6F78461F6BDF870089A9BB = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = SU7Z8X6W4R;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FE6F78241F6BDF870089A9BB;
+					};
+				};
+			};
+			buildConfigurationList = FE6F78201F6BDF870089A9BB /* Build configuration list for PBXProject "iWatch" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FE6F781C1F6BDF870089A9BB;
+			productRefGroup = FE6F78261F6BDF870089A9BB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FE6F78241F6BDF870089A9BB /* iWatch */,
+				FE6F783B1F6BDF870089A9BB /* iWatchTests */,
+				FE6F78461F6BDF870089A9BB /* iWatchUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FE6F78231F6BDF870089A9BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE6F78361F6BDF870089A9BB /* LaunchScreen.storyboard in Resources */,
+				FE6F78331F6BDF870089A9BB /* Assets.xcassets in Resources */,
+				FE906A9B1F794A300019C0B0 /* SearchTableViewCell.xib in Resources */,
+				FEEC4BD41F7011FE0098C492 /* Popular.storyboard in Resources */,
+				FE54A7C71F76A11D0012E601 /* GenreTableViewCell.xib in Resources */,
+				FE6F782E1F6BDF870089A9BB /* Main.storyboard in Resources */,
+				FE30F7E61F7462FB008227E4 /* Search.storyboard in Resources */,
+				FE30F7E41F746193008227E4 /* Genre.storyboard in Resources */,
+				FEAD13451F6E8BF7003824CA /* MovieCollectionViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE6F783A1F6BDF870089A9BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE6F78451F6BDF870089A9BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B89267FA87AF0B2B8F09E1C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iWatch/Pods-iWatch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1E58CC20CDF9672BD826BF47 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iWatchUITests/Pods-iWatchUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3360691CD83BB8ACE7A8350A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iWatch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C53CDE5E147B5511A60362C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iWatchTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		628ACE2F94837DF272450A8C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-iWatch/Pods-iWatch-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iWatch/Pods-iWatch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86A97CA7E661D9129811D52D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iWatchTests/Pods-iWatchTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F21A78FA05343A16B56FB0A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iWatchUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5C7E6881398AA176940E937 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iWatchTests/Pods-iWatchTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F28C8F06251232683EDB71D9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iWatchUITests/Pods-iWatchUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FE6F78211F6BDF870089A9BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE6F78291F6BDF870089A9BB /* AppDelegate.swift in Sources */,
+				FE16AB531F7D138000440CE8 /* DataStore.swift in Sources */,
+				FE6F785F1F6BE21C0089A9BB /* PopularMoviesViewController.swift in Sources */,
+				FE6F78671F6BE7A80089A9BB /* ApiUrls.swift in Sources */,
+				FE4572451F838D9E00EADB33 /* GenresDetailViewController.swift in Sources */,
+				FEFFCF801F7D7DEA00C144B8 /* FavouriteViewController.swift in Sources */,
+				FE16AB511F7CF6B200440CE8 /* CoreDataManager.swift in Sources */,
+				FE6F78631F6BE2D20089A9BB /* GetListMovies.swift in Sources */,
+				FE6F78311F6BDF870089A9BB /* iWatch.xcdatamodeld in Sources */,
+				FE2226AB1F743B6D00BAFCE6 /* ColorPalette.swift in Sources */,
+				FE6F78651F6BE6E80089A9BB /* AllMoviesModel.swift in Sources */,
+				FE30F7E81F769B17008227E4 /* GenresViewController.swift in Sources */,
+				FE81B15F1F79468B00A3D446 /* SearchViewController.swift in Sources */,
+				FEEC4BD61F7165590098C492 /* MovieDetailViewController.swift in Sources */,
+				FEAD13441F6E8BF7003824CA /* MovieCollectionViewCell.swift in Sources */,
+				FE54A7C61F76A11D0012E601 /* GenreTableViewCell.swift in Sources */,
+				FEFFCF7E1F7D7DDC00C144B8 /* PopularViewController.swift in Sources */,
+				FE906A9A1F794A300019C0B0 /* SearchTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE6F78381F6BDF870089A9BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE6F78411F6BDF870089A9BB /* iWatchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE6F78431F6BDF870089A9BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE6F784C1F6BDF870089A9BB /* iWatchUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FE6F783E1F6BDF870089A9BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FE6F78241F6BDF870089A9BB /* iWatch */;
+			targetProxy = FE6F783D1F6BDF870089A9BB /* PBXContainerItemProxy */;
+		};
+		FE6F78491F6BDF870089A9BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FE6F78241F6BDF870089A9BB /* iWatch */;
+			targetProxy = FE6F78481F6BDF870089A9BB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FE30F7E21F746193008227E4 /* Genre.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FE30F7E31F746193008227E4 /* Base */,
+			);
+			name = Genre.storyboard;
+			sourceTree = "<group>";
+		};
+		FE6F782C1F6BDF870089A9BB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FE6F782D1F6BDF870089A9BB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FE6F78341F6BDF870089A9BB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FE6F78351F6BDF870089A9BB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FEEC4BD21F7011FE0098C492 /* Popular.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FEEC4BD31F7011FE0098C492 /* Base */,
+			);
+			name = Popular.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FE6F784E1F6BDF870089A9BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: nahui.tak.jit@gmail.com (WRCWUL577H)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: nahui.tak.jit@gmail.com (WRCWUL577H)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FE6F784F1F6BDF870089A9BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: nahui.tak.jit@gmail.com (WRCWUL577H)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: nahui.tak.jit@gmail.com (WRCWUL577H)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FE6F78511F6BDF870089A9BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2ABD9BB6E9BDD9B076D57DC7 /* Pods-iWatch.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = E6C4YFV8FJ;
+				INFOPLIST_FILE = iWatch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = flexzone.films1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		FE6F78521F6BDF870089A9BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E666036B7FB93D62A77F192 /* Pods-iWatch.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = E6C4YFV8FJ;
+				INFOPLIST_FILE = iWatch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = flexzone.films1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		FE6F78541F6BDF870089A9BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CEBFAC11DDA072D4C6C945A /* Pods-iWatchTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = SU7Z8X6W4R;
+				INFOPLIST_FILE = iWatchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = noflexzone.iWatchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iWatch.app/iWatch";
+			};
+			name = Debug;
+		};
+		FE6F78551F6BDF870089A9BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6695F37E88DAAAA93E37C28C /* Pods-iWatchTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = SU7Z8X6W4R;
+				INFOPLIST_FILE = iWatchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = noflexzone.iWatchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iWatch.app/iWatch";
+			};
+			name = Release;
+		};
+		FE6F78571F6BDF870089A9BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A8D145D33A17E5714ABCCB9 /* Pods-iWatchUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = SU7Z8X6W4R;
+				INFOPLIST_FILE = iWatchUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = noflexzone.iWatchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = iWatch;
+			};
+			name = Debug;
+		};
+		FE6F78581F6BDF870089A9BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 327C6545C61A53AD9217B1E1 /* Pods-iWatchUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = SU7Z8X6W4R;
+				INFOPLIST_FILE = iWatchUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = noflexzone.iWatchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = iWatch;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FE6F78201F6BDF870089A9BB /* Build configuration list for PBXProject "iWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE6F784E1F6BDF870089A9BB /* Debug */,
+				FE6F784F1F6BDF870089A9BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE6F78501F6BDF870089A9BB /* Build configuration list for PBXNativeTarget "iWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE6F78511F6BDF870089A9BB /* Debug */,
+				FE6F78521F6BDF870089A9BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE6F78531F6BDF870089A9BB /* Build configuration list for PBXNativeTarget "iWatchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE6F78541F6BDF870089A9BB /* Debug */,
+				FE6F78551F6BDF870089A9BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE6F78561F6BDF870089A9BB /* Build configuration list for PBXNativeTarget "iWatchUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE6F78571F6BDF870089A9BB /* Debug */,
+				FE6F78581F6BDF870089A9BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FE6F782F1F6BDF870089A9BB /* iWatch.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FE6F78301F6BDF870089A9BB /* iWatch.xcdatamodel */,
+			);
+			currentVersion = FE6F78301F6BDF870089A9BB /* iWatch.xcdatamodel */;
+			path = iWatch.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FE6F781D1F6BDF870089A9BB /* Project object */;
+}

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13526" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCollectionViewCell" id="gTV-IL-0wX" customClass="MovieCollectionViewCell" customModule="iWatch">
+            <rect key="frame" x="0.0" y="0.0" width="355" height="349"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="355" height="349"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FZb-SD-Ipq">
+                        <rect key="frame" x="0.0" y="0.0" width="355" height="349"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLY-dV-8hy">
+                        <rect key="frame" x="20" y="286" width="315" height="43"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="76" id="jy7-cV-AiL"/>
+                        </constraints>
+                        <string key="text">Dedadpool aka zlaya sabeka vosvrashayetsya na ekrane televizorov i vseh priemnikov strani. V etot raz pacan srazitsya s odichalim zlodeem Umkoi.</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="asdas" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6WC-ku-WjH">
+                        <rect key="frame" x="20" y="248" width="233" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="26.5" id="h6j-nG-Ht9"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFB-PG-h2V">
+                        <rect key="frame" x="291" y="250.5" width="44" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="8Dc-Up-Wvt"/>
+                            <constraint firstAttribute="width" constant="44" id="Hmh-5e-fLT"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="TLY-dV-8hy" secondAttribute="trailing" constant="20" id="4HB-ao-kgc"/>
+                <constraint firstItem="hFB-PG-h2V" firstAttribute="centerY" secondItem="6WC-ku-WjH" secondAttribute="centerY" id="H6d-LC-2SR"/>
+                <constraint firstItem="FZb-SD-Ipq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="RJf-Um-5dv"/>
+                <constraint firstAttribute="bottomMargin" secondItem="TLY-dV-8hy" secondAttribute="bottom" constant="20" id="RbS-cQ-wZw"/>
+                <constraint firstItem="TLY-dV-8hy" firstAttribute="top" secondItem="6WC-ku-WjH" secondAttribute="bottom" constant="11.5" id="RqS-GA-alf"/>
+                <constraint firstItem="TLY-dV-8hy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="WH3-ne-Itg"/>
+                <constraint firstAttribute="bottom" secondItem="FZb-SD-Ipq" secondAttribute="bottom" id="ent-XU-Z6D"/>
+                <constraint firstItem="hFB-PG-h2V" firstAttribute="leading" secondItem="6WC-ku-WjH" secondAttribute="trailing" constant="38" id="oP8-LN-0qX"/>
+                <constraint firstItem="FZb-SD-Ipq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="pbo-dD-oep"/>
+                <constraint firstAttribute="trailingMargin" secondItem="hFB-PG-h2V" secondAttribute="trailing" constant="4" id="wJ0-e7-HPS"/>
+                <constraint firstAttribute="trailing" secondItem="FZb-SD-Ipq" secondAttribute="trailing" id="x48-pl-v42"/>
+                <constraint firstItem="6WC-ku-WjH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="xWC-K0-KmL"/>
+            </constraints>
+            <size key="customSize" width="386" height="349"/>
+            <connections>
+                <outlet property="posterDescription" destination="TLY-dV-8hy" id="AcE-8d-0gj"/>
+                <outlet property="posterImage" destination="FZb-SD-Ipq" id="MAH-Fu-qDD"/>
+                <outlet property="posterName" destination="6WC-ku-WjH" id="adb-rs-LVG"/>
+                <outlet property="posterRating" destination="hFB-PG-h2V" id="x99-s6-rvC"/>
+            </connections>
+            <point key="canvasLocation" x="38.5" y="40.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

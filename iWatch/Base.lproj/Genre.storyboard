@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8wB-hU-9FM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Genres View Controller-->
+        <scene sceneID="EDI-7p-byH">
+            <objects>
+                <viewController id="lpp-jt-Dcq" customClass="GenresViewController" customModule="iWatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0iw-ao-ACl"/>
+                        <viewControllerLayoutGuide type="bottom" id="V90-be-jjj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AeB-72-e1P">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sFj-Bz-1Ey">
+                                <rect key="frame" x="0.0" y="66" width="375" height="544"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lpp-jt-Dcq" id="rx2-BI-vqb"/>
+                                    <outlet property="delegate" destination="lpp-jt-Dcq" id="jGG-Ap-yFn"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.058823529409999999" green="0.058823529409999999" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="sFj-Bz-1Ey" secondAttribute="trailing" id="QjQ-jt-16b"/>
+                            <constraint firstItem="sFj-Bz-1Ey" firstAttribute="top" secondItem="0iw-ao-ACl" secondAttribute="bottom" constant="46" id="fFP-Aa-9Wl"/>
+                            <constraint firstItem="V90-be-jjj" firstAttribute="top" secondItem="sFj-Bz-1Ey" secondAttribute="bottom" constant="8" id="qAr-Df-MKc"/>
+                            <constraint firstItem="sFj-Bz-1Ey" firstAttribute="leading" secondItem="AeB-72-e1P" secondAttribute="leading" id="u8X-He-vFH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="30i-zU-6oA"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="sFj-Bz-1Ey" id="XlH-f9-2P4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UKL-UZ-WgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-77.599999999999994" y="344.97751124437787"/>
+        </scene>
+        <!--Genres Detail View Controller-->
+        <scene sceneID="bef-jH-hl9">
+            <objects>
+                <viewController storyboardIdentifier="GenresDetailViewController" id="cQJ-av-GQo" customClass="GenresDetailViewController" customModule="iWatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZVB-xe-sga"/>
+                        <viewControllerLayoutGuide type="bottom" id="8qu-1y-sMz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ebx-Jj-cNi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uH8-jE-QT5">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qmj-jH-45g">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCollectionViewCell" id="ohZ-LQ-0xe" customClass="MovieCollectionViewCell" customModule="iWatch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="cQJ-av-GQo" id="h1g-4k-DkW"/>
+                                    <outlet property="delegate" destination="cQJ-av-GQo" id="yO0-57-E0V"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.058823529409999999" green="0.058823529409999999" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="uH8-jE-QT5" secondAttribute="trailing" id="BH7-vX-3PV"/>
+                            <constraint firstItem="8qu-1y-sMz" firstAttribute="top" secondItem="uH8-jE-QT5" secondAttribute="bottom" id="PmU-wm-eiR"/>
+                            <constraint firstItem="uH8-jE-QT5" firstAttribute="top" secondItem="ZVB-xe-sga" secondAttribute="bottom" id="Y0x-jH-0fW"/>
+                            <constraint firstItem="uH8-jE-QT5" firstAttribute="leading" secondItem="Ebx-Jj-cNi" secondAttribute="leading" id="ZNe-Cy-Qrv"/>
+                        </constraints>
+                    </view>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="uH8-jE-QT5" id="V7j-5K-nHz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q8S-kc-Lyp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="698.39999999999998" y="344.97751124437787"/>
+        </scene>
+        <!--Genres-->
+        <scene sceneID="oiO-vo-fqi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="8wB-hU-9FM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Genres" image="corngray" selectedImage="cornwhite" id="c48-n8-CNR"/>
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="D8h-rF-SmI">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lpp-jt-Dcq" kind="relationship" relationship="rootViewController" id="Wmn-2Q-mta"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QZo-p2-Sup" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-870" y="345"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="corngray" width="32" height="32"/>
+        <image name="cornwhite" width="32" height="32"/>
+    </resources>
+</document>
