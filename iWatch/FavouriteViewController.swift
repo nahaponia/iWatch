@@ -43,10 +43,9 @@ class FavouriteViewController: UIViewController {
             cell.posterName.text = movie.movieTitle
             cell.posterDescription.text = movie.movieOverview
             
-            if let url = URL(string: ApiUrls.basic + movie.backgroundImage!) {
-                cell.posterImage.sd_setImage(with: url ) { (image, error, cache, url) in
-                    cell.posterImage.image = image
-                }
+            let url = URL(string: ApiUrls.basic + movie.backgroundImage!)
+            cell.posterImage.sd_setImage(with: url ) { (image, error, cache, url) in
+            cell.posterImage.image = image
             }
             
         }

@@ -55,9 +55,10 @@ class SearchViewController: UIViewController {
             cell.movieYear.text = results.movieReleaseDate
             cell.movieRating.text = "\(results.movieRating!)/10"
             
-            if let url = URL(string: ApiUrls.basic + results.backgroundImage) {
-                cell.movieImage?.sd_setImage(with: url ) { (image, error, cache, url) in
-                    cell.movieImage?.image = image
+            if let backgroundImage = results.backgroundImage {
+                let url = URL(string: ApiUrls.basic + backgroundImage)!
+                cell.movieImage.sd_setImage(with: url ) { (image, error, cache, url) in
+                    cell.movieImage.image = image
                 }
             }
             

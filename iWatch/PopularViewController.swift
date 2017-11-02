@@ -66,7 +66,8 @@ class PopularViewController: UIViewController {
             cell.posterName.text = movie.movieTitle
             cell.posterDescription.text = movie.movieOverview
             
-            if let url = URL(string: ApiUrls.basic + movie.backgroundImage!) {
+            if let backgroundImage = movie.backgroundImage {
+                let url = URL(string: ApiUrls.basic + backgroundImage)!
                 cell.posterImage.sd_setImage(with: url ) { (image, error, cache, url) in
                     cell.posterImage.image = image
                 }

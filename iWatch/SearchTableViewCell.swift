@@ -10,7 +10,7 @@ import UIKit
 
 class SearchTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var movieImage: UIImageView?
+    @IBOutlet weak var movieImage: UIImageView!
     @IBOutlet weak var moveName: UILabel!
     @IBOutlet weak var movieYear: UILabel!
     @IBOutlet weak var movieRating: UILabel!
