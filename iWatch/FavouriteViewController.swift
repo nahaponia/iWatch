@@ -28,7 +28,7 @@ class FavouriteViewController: UIViewController {
         storedMovie = dataStore.fetchMovies()
     }
     
-    func setupView() {
+    private func setupView() {
         movies = dataStore.savedMovies()
         collectionView.reloadData()
         collectionView.contentInsetAdjustmentBehavior = .never
@@ -36,7 +36,7 @@ class FavouriteViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     
-    func setupCell(_ cell: MovieCollectionViewCell, movie: MoviesEntity, indexPath: IndexPath) {
+    fileprivate func setupCell(_ cell: MovieCollectionViewCell, movie: MoviesEntity, indexPath: IndexPath) {
         if let movie = storedMovie?[indexPath.row] {
             
             cell.posterRating.text = "\(movie.movieRating)"

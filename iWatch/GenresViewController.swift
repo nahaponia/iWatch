@@ -28,7 +28,7 @@ class GenresViewController: UIViewController {
         }
     }
     
-    func setupView() {
+    private func setupView() {
         tableView.backgroundColor = ColorPalette.backgroundBlack
         tableView.separatorColor = UIColor.gray
     }

@@ -44,7 +44,7 @@ class PopularViewController: UIViewController {
         })
     }
 
-    func scrollToTop() {
+    private func scrollToTop() {
         let delay = 0.1 * Double(NSEC_PER_SEC)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)) { () in
             let firstRowIndexPath = IndexPath(item: 0, section: 0)
@@ -52,16 +52,15 @@ class PopularViewController: UIViewController {
         }
     }
     
-    func setupView() {
+    private func setupView() {
         tabBarController?.delegate = self
         collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MovieCollectionViewCell")
         self.navigationController?.navigationBar.isHidden = true
     }
     
-    func setupCell(_ cell: MovieCollectionViewCell, movie: Movies, indexPath: IndexPath) {
+    fileprivate func setupCell(_ cell: MovieCollectionViewCell, movie: Movies, indexPath: IndexPath) {
         if let movie = movies?[indexPath.row] {
-            
             cell.posterRating.text = "\(movie.movieRating!)"
             cell.posterName.text = movie.movieTitle
             cell.posterDescription.text = movie.movieOverview

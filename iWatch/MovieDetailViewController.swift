@@ -39,7 +39,7 @@ class MovieDetailViewController: UIViewController, UIGestureRecognizerDelegate {
         self.tabBarController?.tabBar.isHidden = false
     }
     
-    func setupView() {
+    private func setupView() {
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         if let indexPath = indexPath {

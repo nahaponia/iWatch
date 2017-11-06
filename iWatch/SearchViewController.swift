@@ -47,7 +47,7 @@ class SearchViewController: UIViewController {
         }
     }
     
-    func setupCell(_ cell: SearchTableViewCell, movie: Movies, indexPath: IndexPath) {
+    fileprivate func setupCell(_ cell: SearchTableViewCell, movie: Movies, indexPath: IndexPath) {
         
         if let results = result?[indexPath.row] {
             

@@ -28,7 +28,7 @@ class GenresDetailViewController: UIViewController, UIGestureRecognizerDelegate 
         }
     }
     
-    func setupView() {
+    private func setupView() {
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         collectionView.contentInsetAdjustmentBehavior = .never
         self.collectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MovieCollectionViewCell")
@@ -38,7 +38,7 @@ class GenresDetailViewController: UIViewController, UIGestureRecognizerDelegate 
         return true
     }
     
-    func setupCell(_ cell: MovieCollectionViewCell, movie: Movies, indexPath: IndexPath) {
+    fileprivate func setupCell(_ cell: MovieCollectionViewCell, movie: Movies, indexPath: IndexPath) {
         if let movie = movies?[indexPath.row] {
             
             cell.posterRating.text = "\(movie.movieRating!)"
