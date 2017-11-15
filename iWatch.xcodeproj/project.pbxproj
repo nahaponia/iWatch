@@ -261,8 +261,8 @@
 			isa = PBXGroup;
 			children = (
 				FE6F782C1F6BDF870089A9BB /* Main.storyboard */,
-				FE30F7E51F7462FB008227E4 /* Search.storyboard */,
 				FEEC4BD21F7011FE0098C492 /* Popular.storyboard */,
+				FE30F7E51F7462FB008227E4 /* Search.storyboard */,
 				FE30F7E21F746193008227E4 /* Genre.storyboard */,
 				FE6F78341F6BDF870089A9BB /* LaunchScreen.storyboard */,
 			);
@@ -513,12 +513,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-iWatch/Pods-iWatch-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${PODS_ROOT}/Reveal-SDK/RevealServer-11/iOS/RevealServer.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

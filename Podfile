@@ -9,6 +9,7 @@ target 'iWatch' do
 	pod 'Alamofire', '~> 4.4'
 	pod 'ObjectMapper', '~> 2.2'
 	pod 'SDWebImage', '~>3.8'
+ 	pod 'Reveal-SDK', :configurations => ['Debug']
 
   target 'iWatchTests' do
     inherit! :search_paths

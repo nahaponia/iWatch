@@ -60,13 +60,14 @@ class PopularViewController: UIViewController {
     }
     
     fileprivate func setupCell(_ cell: MovieCollectionViewCell, movie: Movies, indexPath: IndexPath) {
+       
         if let movie = movies?[indexPath.row] {
-            cell.posterRating.text = "\(movie.movieRating!)"
+            cell.posterRating.text = movie.rating()
             cell.posterName.text = movie.movieTitle
             cell.posterDescription.text = movie.movieOverview
             
             if let backgroundImage = movie.backgroundImage {
-                let url = URL(string: ApiUrls.basic + backgroundImage)!
+                guard let url = URL(string: ApiUrls.basic + backgroundImage) else { return }
                 cell.posterImage.sd_setImage(with: url ) { (image, error, cache, url) in
                     cell.posterImage.image = image
                 }
@@ -104,8 +105,8 @@ extension PopularViewController: UICollectionViewDataSource {
             if indexPath.row == lastItem {
                 currentPage += 1
                 GetMovies.popular(currentPage, completed: { [weak self] movie in
-                    for i in movie! {
-                        self?.movies?.append(i)
+                    for mov in movie! {
+                        self?.movies?.append(mov)
                     }
                     self?.collectionView.reloadData()
                 })

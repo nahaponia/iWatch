@@ -33,6 +33,12 @@ struct Movies: Mappable {
         companies <- map["production_companies"]
     }
     
+     func rating() -> String {
+        let rating = String(movieRating)
+        return rating
+    }
+    
+    
     init?(map: Map) {
         
     }

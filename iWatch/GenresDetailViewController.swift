@@ -10,7 +10,7 @@ import UIKit
 
 class GenresDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     
-    var movies: [Movies]?
+    fileprivate var movies: [Movies]?
     var genreID: Int = 0
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -45,11 +45,11 @@ class GenresDetailViewController: UIViewController, UIGestureRecognizerDelegate 
             cell.posterName.text = movie.movieTitle
             cell.posterDescription.text = movie.movieOverview
             
-            if let url = URL(string: ApiUrls.basic + movie.backgroundImage) {
-                cell.posterImage.sd_setImage(with: url ) { (image, error, cache, url) in
-                    cell.posterImage.image = image
-                }
+            guard let url = URL(string: ApiUrls.basic + movie.backgroundImage) else { return }
+            cell.posterImage.sd_setImage(with: url ) { (image, error, cache, url) in
+                cell.posterImage.image = image
             }
+            
         }
         cell.layer.cornerRadius = 12
     }

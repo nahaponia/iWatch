@@ -10,8 +10,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-    var result: [Movies]?
-    var text: String?
+    fileprivate var result: [Movies]?
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -23,24 +22,23 @@ class SearchViewController: UIViewController {
         setupView()
     }
     
-    func setupView() {
-        tableView.contentInsetAdjustmentBehavior = .never
+    private func setupView() {
         tableView.backgroundColor = ColorPalette.backgroundBlack
         searchBar.barTintColor = ColorPalette.backgroundBlack
         tableView.separatorStyle = .none
         
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification1), name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotificationUp), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotificationDown), name: .UIKeyboardWillHide, object: nil)
     }
     
-    func handleKeyboardNotification(notification: Notification) {
+    @objc private func handleKeyboardNotificationUp(notification: Notification) {
         if let userInfo = notification.userInfo {
             let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
             tableViewOfset.constant += keyboardFrame!.height - 35 
         }
     }
     
-    func handleKeyboardNotification1(notification: Notification) {
+    @objc private func handleKeyboardNotificationDown(notification: Notification) {
         if let userInfo = notification.userInfo {
             let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
             tableViewOfset.constant -= keyboardFrame!.height
@@ -56,7 +54,7 @@ class SearchViewController: UIViewController {
             cell.movieRating.text = "\(results.movieRating!)/10"
             
             if let backgroundImage = results.backgroundImage {
-                let url = URL(string: ApiUrls.basic + backgroundImage)!
+                guard let url = URL(string: ApiUrls.basic + backgroundImage) else { return }
                 cell.movieImage.sd_setImage(with: url ) { (image, error, cache, url) in
                     cell.movieImage.image = image
                 }
@@ -99,9 +97,9 @@ extension SearchViewController: UITableViewDelegate {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        GetMovies.searchFor(searchBar.text!) { [weak self] results in
-            self?.result = results
-            self?.tableView.reloadData()
+        GetMovies.searchFor(searchBar.text!) { results in
+            self.result = results
+            self.tableView.reloadData()
         }
     }
     

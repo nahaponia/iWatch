@@ -10,7 +10,7 @@ import UIKit
 
 class GenresViewController: UIViewController {
     
-    var genres: [Genres]?
+    fileprivate var genres: [Genres]?
    
     @IBOutlet weak var tableView: UITableView!
 
@@ -22,10 +22,7 @@ class GenresViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        GetMovies.getGenres { [weak self] genres in
-            self?.genres = genres
-            self?.tableView.reloadData()
-        }
+        getGenres()
     }
     
     private func setupView() {
@@ -33,7 +30,12 @@ class GenresViewController: UIViewController {
         tableView.separatorColor = UIColor.gray
     }
     
-    
+    private func getGenres() {
+        GetMovies.getGenres { genres in
+            self.genres = genres
+            self.tableView.reloadData()
+        }
+    }
     
 }
 

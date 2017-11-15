@@ -11,23 +11,23 @@ import SDWebImage
 
 class PopularMoviesViewController: UIViewController {
     
-    enum TabIndex: Int {
+    private enum TabIndex: Int {
         case firstTab = 0
         case secondTab = 1
     }
     
     @IBOutlet weak var contentView: UIView!
     
-    let storyBoard = UIStoryboard(name: "Popular", bundle: nil)
+    private let storyBoard = UIStoryboard(name: "Popular", bundle: nil)
     
-    var currentTabViewController: UIViewController?
+    private var currentTabViewController: UIViewController?
     
-    lazy var firstTabViewController: UIViewController? = {
+    private lazy var firstTabViewController: UIViewController? = {
         let firstTavViewController = self.storyBoard.instantiateViewController(withIdentifier: "PopularViewController")
         return firstTavViewController
     }()
     
-    lazy var secondTabViewController: UIViewController? = {
+    private lazy var secondTabViewController: UIViewController? = {
         let secondTabViewController = self.storyBoard.instantiateViewController(withIdentifier: "FavouriteViewController")
         return secondTabViewController
     }()
@@ -59,7 +59,7 @@ class PopularMoviesViewController: UIViewController {
         displayCurrentTab(sender.selectedSegmentIndex)
     }
     
-    func displayCurrentTab(_ tabIndex: Int){
+    private func displayCurrentTab(_ tabIndex: Int){
         if let vc = viewControllerForSelectedSegmentIndex(tabIndex) {
             
             self.addChildViewController(vc)
@@ -71,7 +71,7 @@ class PopularMoviesViewController: UIViewController {
         }
     }
     
-    func viewControllerForSelectedSegmentIndex(_ index: Int) -> UIViewController? {
+    private func viewControllerForSelectedSegmentIndex(_ index: Int) -> UIViewController? {
         var vc: UIViewController?
         switch index {
         case TabIndex.firstTab.rawValue :
@@ -86,7 +86,7 @@ class PopularMoviesViewController: UIViewController {
     
     // MARK: - View Methods
     
-    func setupView() {
+    private func setupView() {
         displayCurrentTab(TabIndex.firstTab.rawValue)
         self.tabBarController?.tabBar.barTintColor = ColorPalette.backgroundBlack
         self.tabBarController?.delegate = self as UITabBarControllerDelegate

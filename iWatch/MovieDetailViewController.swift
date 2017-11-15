@@ -14,10 +14,10 @@ class MovieDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var movieID: Int!
     var indexPath: Int?
-    var movie: Movies!
-    var storedMovies: MoviesEntity!
+    private var movie: Movies?
+    private var storedMovies: MoviesEntity?
     
-    var dataStore = DataStore()
+    private var dataStore = DataStore()
 
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var posterImage: UIImageView!
@@ -32,6 +32,11 @@ class MovieDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getMovieInfo()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -52,11 +57,6 @@ class MovieDetailViewController: UIViewController, UIGestureRecognizerDelegate {
         return true
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        getMovieInfo()
-    }
-    
     @IBAction func backButton(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
@@ -73,33 +73,34 @@ class MovieDetailViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    func getMovieInfo() {
-        GetMovies.byID(movieID) { [weak self] (movie) in
-            self?.movie = movie!
-            
-            let rating: String = {
-                let rating = String(describing: movie!.movieRating!)
-                return rating
-            }()
-            
-            self?.filmName.text = movie?.movieTitle
-            self?.filmTagline.text = movie?.tagline
-            self?.filmDescription.text = movie?.movieOverview
-            self?.filmRating.text = rating + "/10"
-            
-            let url = URL(string: ApiUrls.basic + (movie?.backgroundImage)!)
-            let url1 = URL(string: ApiUrls.getImage + (movie?.movieImage)!)
-            
-            self?.backgroundImage.sd_setImage(with: url) { (image, error, cache, url) in
-                self?.backgroundImage.image = image
-            }
-            self?.posterImage.sd_setImage(with: url1) { (image, error, cache, url) in
-                self?.posterImage.image = image
-            }
-            
+    private func getMovieInfo() {
+        GetMovies.byID(movieID) { (movie) in
+            self.movie = movie
+            self.setupView1()
         }
-
     }
     
     
+    private func setupView1() {
+        
+        if let movie = movie {
+            
+            self.filmName.text = movie.movieTitle
+            self.filmTagline.text = movie.tagline
+            self.filmDescription.text = movie.movieOverview
+            self.filmRating.text = movie.rating() + "/10"
+            
+            guard let url = URL(string: ApiUrls.basic + movie.backgroundImage) else { return }
+            guard let url1 = URL(string: ApiUrls.getImage + movie.movieImage) else { return }
+            
+            self.backgroundImage.sd_setImage(with: url) { (image, error, cache, url) in
+                self.backgroundImage.image = image
+            }
+            self.posterImage.sd_setImage(with: url1) { (image, error, cache, url) in
+                self.posterImage.image = image
+            }
+        }
+        
+    }
+        
 }
