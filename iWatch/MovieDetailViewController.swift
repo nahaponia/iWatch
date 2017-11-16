@@ -76,12 +76,12 @@ class MovieDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     private func getMovieInfo() {
         GetMovies.byID(movieID) { (movie) in
             self.movie = movie
-            self.setupView1()
+            self.requestMovieInfo()
         }
     }
     
     
-    private func setupView1() {
+    private func requestMovieInfo() {
         
         if let movie = movie {
             
