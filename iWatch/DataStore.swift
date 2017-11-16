@@ -14,7 +14,7 @@ final class DataStore: NSObject {
     var coreDataManager = CoreDataManager()
     var storedMovies = [MoviesEntity]()
     
-     var context = NSManagedObjectContext(
+    var context = NSManagedObjectContext(
         concurrencyType: NSManagedObjectContextConcurrencyType.mainQueueConcurrencyType)
         
     override init() {
