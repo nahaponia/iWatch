@@ -74,9 +74,9 @@ class MovieDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func getMovieInfo() {
-        GetMovies.byID(movieID) { (movie) in
-            self.movie = movie
-            self.requestMovieInfo()
+        GetMovies.byID(movieID) { [weak self] (movie) in
+            self?.movie = movie
+            self?.requestMovieInfo()
         }
     }
     

@@ -6,9 +6,9 @@ target 'iWatch' do
   use_frameworks!
 
   # Pods for iWatch
-	pod 'Alamofire', '~> 4.4'
-	pod 'ObjectMapper', '~> 2.2'
-	pod 'SDWebImage', '~>3.8'
+	pod 'Alamofire', '~> 4.5'
+	pod 'ObjectMapper', '~> 3.0.0'
+	pod 'SDWebImage', '~>4.0'
  	pod 'Reveal-SDK', :configurations => ['Debug']
 
   target 'iWatchTests' do
