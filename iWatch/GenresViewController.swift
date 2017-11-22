@@ -31,9 +31,9 @@ class GenresViewController: UIViewController {
     }
     
     private func getGenres() {
-        GetMovies.getGenres { genres in
-            self.genres = genres
-            self.tableView.reloadData()
+        GetMovies.getGenres { [weak self] genres in
+            self?.genres = genres
+            self?.tableView.reloadData()
         }
     }
     

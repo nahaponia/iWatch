@@ -97,9 +97,9 @@ extension SearchViewController: UITableViewDelegate {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        GetMovies.searchFor(searchBar.text!) { results in
-            self.result = results
-            self.tableView.reloadData()
+        GetMovies.searchFor(searchBar.text!) { [weak self] results in
+            self?.result = results
+            self?.tableView.reloadData()
         }
     }
     
