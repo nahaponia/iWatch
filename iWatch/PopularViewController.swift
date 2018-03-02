@@ -33,7 +33,7 @@ class PopularViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        scrollToTop()
+//        scrollToTop()
         currentPage = 1
     }
     
@@ -104,6 +104,7 @@ extension PopularViewController: UICollectionViewDataSource {
             let lastItem = moviesCount - 1
             if indexPath.row == lastItem {
                 currentPage += 1
+             
                 GetMovies.popular(currentPage, completed: { [weak self] movie in
                     for mov in movie! {
                         self?.movies?.append(mov)

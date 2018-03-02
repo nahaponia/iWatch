@@ -99,6 +99,7 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         GetMovies.searchFor(searchBar.text!) { [weak self] results in
             self?.result = results
+            
             self?.tableView.reloadData()
         }
     }
