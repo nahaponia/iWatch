@@ -27,20 +27,20 @@ class SearchViewController: UIViewController {
         searchBar.barTintColor = ColorPalette.backgroundBlack
         tableView.separatorStyle = .none
         
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotificationUp), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotificationDown), name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotificationUp), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotificationDown), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc private func handleKeyboardNotificationUp(notification: Notification) {
         if let userInfo = notification.userInfo {
-            let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
+            let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
             tableViewOfset.constant += keyboardFrame!.height - 35 
         }
     }
     
     @objc private func handleKeyboardNotificationDown(notification: Notification) {
         if let userInfo = notification.userInfo {
-            let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
+            let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
             tableViewOfset.constant -= keyboardFrame!.height
         }
     }

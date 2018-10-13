@@ -1,23 +1,30 @@
 PODS:
-  - Alamofire (4.5.0)
-  - ObjectMapper (3.0.0)
-  - Reveal-SDK (11)
-  - SDWebImage (4.2.1):
-    - SDWebImage/Core (= 4.2.1)
-  - SDWebImage/Core (4.2.1)
+  - Alamofire (4.7.3)
+  - ObjectMapper (3.3.0)
+  - Reveal-SDK (18)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.5)
-  - ObjectMapper (~> 3.0.0)
+  - Alamofire (~> 4.7)
+  - ObjectMapper (~> 3.1)
   - Reveal-SDK
   - SDWebImage (~> 4.0)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - ObjectMapper
+    - Reveal-SDK
+    - SDWebImage
+
 SPEC CHECKSUMS:
-  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
-  ObjectMapper: 92230db59bf8f341a5c3a3cf0b9fbdde3cf0d87f
-  Reveal-SDK: 7fa13d04bb55db61ff2342a990cf731d5159361d
-  SDWebImage: 1fa4c9edf525b744f002db89f3f5a38b3cd4c541
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
+  Reveal-SDK: cce79388da3fd0bbb6ae19d769b906cfc3a33a89
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
 
-PODFILE CHECKSUM: 9ace38321ea0d96759759f924eb91f9b793a8c95
+PODFILE CHECKSUM: 1051ffb5dd6cecaa8e56ce3b836da96f899caa44
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.2

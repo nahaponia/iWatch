@@ -9,6 +9,7 @@
 import Foundation
 
 struct ApiUrls {
+    
     static let apiKey: String = "?api_key=fbe4e6280f6a460beaad8ebe2bc130ac"
     static let getAllMovies: String = "https://api.themoviedb.org/3/discover/movie"
     static let getInfoAboutMovie: String = "https://api.themoviedb.org/3/movie/"
@@ -19,4 +20,5 @@ struct ApiUrls {
     
     static let getPopular: String = "https://api.themoviedb.org/3/discover/movie?api_key=fbe4e6280f6a460beaad8ebe2bc130ac&page="
     static let searhByGenres: String = "https://api.themoviedb.org/3/genre/"
+    
 }

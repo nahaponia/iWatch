@@ -24,7 +24,7 @@ final class DataStore: NSObject {
     func saveMovie(_ movies: Movies) {
         let entityDescription = NSEntityDescription.entity(forEntityName: "MoviesEntity", in: context)
         let movieToSave = MoviesEntity(entity:entityDescription!, insertInto: context)
-
+//        movieToSave.movieImage =
         movieToSave.setValue(movies.movieImage, forKey: "movieImage")
         movieToSave.setValue(movies.movieTitle, forKey: "movieTitle")
         movieToSave.setValue(movies.movieOverview, forKey: "movieOverview")
@@ -102,7 +102,6 @@ final class DataStore: NSObject {
             movies.movieTitle = prod.movieTitle
             movies.movieImage = prod.movieImage
             movies.movieID = Int(prod.movieID)
-            
             tempArr.append(movies)
         }
         return tempArr

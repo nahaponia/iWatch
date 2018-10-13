@@ -30,7 +30,9 @@ class GenresDetailViewController: UIViewController, UIGestureRecognizerDelegate 
     
     private func setupView() {
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
-        collectionView.contentInsetAdjustmentBehavior = .never
+        if #available(iOS 11.0, *) {
+            collectionView.contentInsetAdjustmentBehavior = .never
+        }
         self.collectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MovieCollectionViewCell")
     }
     
@@ -45,10 +47,16 @@ class GenresDetailViewController: UIViewController, UIGestureRecognizerDelegate 
             cell.posterName.text = movie.movieTitle
             cell.posterDescription.text = movie.movieOverview
             
-            guard let url = URL(string: ApiUrls.basic + movie.backgroundImage) else { return }
-            cell.posterImage.sd_setImage(with: url ) { (image, error, cache, url) in
-                cell.posterImage.image = image
+            //FIXME: use image as optional value
+            
+            if let url = URL(string: ApiUrls.basic + movie.backgroundImage) {
+                
+                cell.posterImage.sd_setImage(with: url ) { (image, error, cache, url) in
+                    cell.posterImage.image = image
+                }
+                
             }
+            
             
         }
         cell.layer.cornerRadius = 12
@@ -85,7 +93,7 @@ extension GenresDetailViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(0, 0, 0, 0)
+        return UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
     }
     
 }

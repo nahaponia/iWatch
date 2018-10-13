@@ -13,6 +13,7 @@ import ObjectMapper
 class GetMovies {
     
     class func popular(_ page: Int, completed: @escaping ([Movies]?) -> Void) {
+      
         let URL = ApiUrls.getPopular + "\(page)"
        
         Alamofire.request(URL, method: .get).responseJSON {
@@ -29,7 +30,6 @@ class GetMovies {
             }
         }
     }
-    
     
     class func byID(_ movieID: Int, completed: @escaping (Movies?) -> Void) {
         let URL = ApiUrls.getInfoAboutMovie + "\(movieID)" + ApiUrls.apiKey

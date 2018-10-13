@@ -54,7 +54,7 @@ class PopularMoviesViewController: UIViewController {
     
     @IBAction func indexChanged(_ sender: UISegmentedControl) {
         self.currentTabViewController!.view.removeFromSuperview()
-        self.currentTabViewController!.removeFromParentViewController()
+        self.currentTabViewController!.removeFromParent()
         
         displayCurrentTab(sender.selectedSegmentIndex)
     }
@@ -62,8 +62,8 @@ class PopularMoviesViewController: UIViewController {
     private func displayCurrentTab(_ tabIndex: Int){
         if let vc = viewControllerForSelectedSegmentIndex(tabIndex) {
             
-            self.addChildViewController(vc)
-            vc.didMove(toParentViewController: self)
+            self.addChild(vc)
+            vc.didMove(toParent: self)
             
             vc.view.frame = self.contentView.bounds
             self.contentView.addSubview(vc.view)
