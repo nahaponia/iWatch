@@ -7,43 +7,33 @@
 //
 
 import UIKit
+
 protocol GetMoviesByGenre: class {
     
 }
 
 class PopularViewController: UIViewController {
     
-    var movies: [Movies]?
-    var storedProducts: [MoviesEntity]?
-    
     var currentPage = 1
-    var genreID: Int?
 
     @IBOutlet weak var collectionView: UICollectionView!
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupView()
     }
     
+    private var networkingModel = MoviesNetworkingModel()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getMovies()
+        print()
+        networkingModel.getMovies(page: currentPage, collectionView: collectionView)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        scrollToTop()
-        currentPage = 1
-    }
     
-    func getMovies() {
-        GetMovies.popular(currentPage, completed: { [weak self] data in
-            self?.movies = data!
-            self?.collectionView.reloadData()
-        })
-    }
-
     private func scrollToTop() {
         let delay = 0.1 * Double(NSEC_PER_SEC)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)) { () in
@@ -52,30 +42,16 @@ class PopularViewController: UIViewController {
         }
     }
     
+    
     private func setupView() {
-        tabBarController?.delegate = self
-        collectionView.contentInsetAdjustmentBehavior = .never
+        
+        if #available(iOS 11.0, *) {
+            collectionView.contentInsetAdjustmentBehavior = .never
+        }
         collectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MovieCollectionViewCell")
         self.navigationController?.navigationBar.isHidden = true
     }
     
-    fileprivate func setupCell(_ cell: MovieCollectionViewCell, movie: Movies, indexPath: IndexPath) {
-       
-        if let movie = movies?[indexPath.row] {
-            cell.posterRating.text = movie.rating()
-            cell.posterName.text = movie.movieTitle
-            cell.posterDescription.text = movie.movieOverview
-            
-            if let backgroundImage = movie.backgroundImage {
-                guard let url = URL(string: ApiUrls.basic + backgroundImage) else { return }
-                cell.posterImage.sd_setImage(with: url ) { (image, error, cache, url) in
-                    cell.posterImage.image = image
-                }
-            }
-            
-        }
-        cell.layer.cornerRadius = 12
-    }
 
 }
 
@@ -83,7 +59,7 @@ extension PopularViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if let movies = movies { return movies.count } else { return 0 }
+        return networkingModel.movies.count
         
     }
     
@@ -91,30 +67,23 @@ extension PopularViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollectionViewCell", for: indexPath) as! MovieCollectionViewCell
         
-        if let movie = movies?[indexPath.row] {
-            setupCell(cell, movie: movie, indexPath: indexPath)
-        }
+        networkingModel.setupCell(cell, indexPath: indexPath)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        if let moviesCount = movies?.count {
-            let lastItem = moviesCount - 1
-            if indexPath.row == lastItem {
-                currentPage += 1
-                GetMovies.popular(currentPage, completed: { [weak self] movie in
-                    for mov in movie! {
-                        self?.movies?.append(mov)
-                    }
-                    self?.collectionView.reloadData()
-                })
-            }
+        let lastItem = networkingModel.movies.count - 4
+        if indexPath.row == lastItem {
+            currentPage += 1
+            networkingModel.getMovies(page: currentPage, collectionView: collectionView)
         }
+        
     }
     
 }
+
 
 extension PopularViewController: UICollectionViewDelegate {
     
@@ -122,23 +91,24 @@ extension PopularViewController: UICollectionViewDelegate {
         let storyboard = UIStoryboard(name: "Popular", bundle: nil)
         
         if let vc = storyboard.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController {
-            vc.movieID = movies?[indexPath.row].movieID
+            
+            vc.movieID = networkingModel.movies[indexPath.row].movieID
             navigationController?.pushViewController(vc, animated: true)
+            
         }
     }
     
 }
+
 
 extension PopularViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return CGSize(width: view.frame.width - 24, height: 370)
+        
     }
     
 }
 
-extension PopularViewController: UITabBarControllerDelegate {
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-    }
-}
+

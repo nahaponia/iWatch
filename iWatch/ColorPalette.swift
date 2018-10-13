@@ -8,6 +8,10 @@
 
 import UIKit
 
+//FIXME: - ADD MORE COLOURS
+
+//MARK: - HUMAN COLOURS
+
 struct ColorPalette {
     static let backgroundBlack = UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)
 }

@@ -31,7 +31,9 @@ class FavouriteViewController: UIViewController {
     private func setupView() {
         movies = dataStore.savedMovies()
         collectionView.reloadData()
-        collectionView.contentInsetAdjustmentBehavior = .never
+        if #available(iOS 11.0, *) {
+            collectionView.contentInsetAdjustmentBehavior = .never
+        }
         collectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MovieCollectionViewCell")
         self.navigationController?.navigationBar.isHidden = true
     }
@@ -43,7 +45,7 @@ class FavouriteViewController: UIViewController {
             cell.posterName.text = movie.movieTitle
             cell.posterDescription.text = movie.movieOverview
             
-            let url = URL(string: ApiUrls.basic + movie.backgroundImage!) 
+            let url = URL(string: ApiUrls.basic + movie.backgroundImage!)
             cell.posterImage.sd_setImage(with: url ) { (image, error, cache, url) in
                 cell.posterImage.image = image
             }
@@ -57,8 +59,9 @@ class FavouriteViewController: UIViewController {
 extension FavouriteViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let mov = storedMovie { return mov.count} else { return 0 }
         
-        if let movies = movies { return movies.count } else { return 0 }
+//        if let movies = movies { return movies.count } else { return 0 }
         
     }
     
