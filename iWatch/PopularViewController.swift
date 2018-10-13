@@ -29,14 +29,8 @@ class PopularViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        print()
         networkingModel.getMovies(page: currentPage, collectionView: collectionView)
-    }
-    
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-//        currentPage = 1
     }
     
     
