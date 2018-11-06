@@ -9,16 +9,16 @@
 import Foundation
 import Alamofire
 import ObjectMapper
-import SDWebImage
 
 class MoviesNetworking {
     
-   
-    func popular(_ page: Int, completed: @escaping(Bool, [Movies]?) -> Void) {
+    
+     func popular(_ page: Int, completed: @escaping(Bool, [Movies]?) -> Void) {
+        
         
         let URL = ApiUrls.getPopular + "\(page)"
         var movies = [Movies]()
-
+        
         Alamofire.request(URL, method: .get).responseJSON {
             response in
             
@@ -39,50 +39,70 @@ class MoviesNetworking {
 
     }
     
+    
 }
 
 
-class MoviesNetworkingModel {
+class MoviesViewModel {
     
-    open var movies = [Movies]()
+    open var movies: [Movies] = []
+    
+     func getMovies(page: Int, collectionView: UICollectionView, showError: @escaping () -> Void) {
+        print(CFGetRetainCount(moviesModel))
+        moviesModel.popular(page) { succes, movie in
+            print("Result from server: - \(succes)")
+            succes ? self.showMoviesData(mov: movie!, cw: collectionView) : showError()
+
+        }
+        
+    }
+    
+    
+    func presentAlertController(vc: UIViewController, message: String) {
+        
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { (action) in })
+        vc.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    
+    // Private
+    
     private var moviesModel = MoviesNetworking()
-    
-    
-    func getMovies(page: Int, collectionView: UICollectionView) {
-        
-        moviesModel.popular(page) { (succes, movie) in
-            
-            succes ? self.showMoviesData(mov: movie!, cw: collectionView) : nil
-            
-        }
-        
-    }
-    
-    
-     func setupCell(_ cell: MovieCollectionViewCell, indexPath: IndexPath) {
-        
-        let movie = movies[indexPath.row]
-        cell.posterRating.text = movie.rating()
-        cell.posterName.text = movie.movieTitle
-        cell.posterDescription.text = movie.movieOverview
-        
-        if let backgroundImage = movie.backgroundImage {
-            guard let url = URL(string: ApiUrls.basic + backgroundImage) else { return }
-            cell.posterImage.sd_setImage(with: url ) { (image, error, cache, url) in
-                cell.posterImage.image = image
-            }
-        }
-        
-        cell.layer.cornerRadius = 12
-    }
-    
-    
+//
+//    init() {
+//        self.moviesModel = MoviesNetworking()
+//    }
+
     private func showMoviesData(mov: [Movies], cw: UICollectionView) {
-        
+
         movies.append(contentsOf: mov)
         cw.reloadData()
-        
+
     }
     
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

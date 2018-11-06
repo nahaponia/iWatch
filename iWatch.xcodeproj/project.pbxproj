@@ -15,9 +15,7 @@
 		FE30F7E81F769B17008227E4 /* GenresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30F7E71F769B17008227E4 /* GenresViewController.swift */; };
 		FE4572451F838D9E00EADB33 /* GenresDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4572441F838D9E00EADB33 /* GenresDetailViewController.swift */; };
 		FE45895921724F3000CDD6EF /* Pods_iWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3259853083CE6D593562CA31 /* Pods_iWatch.framework */; };
-		FE45895A21724F3000CDD6EF /* Pods_iWatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE632DCA2172445800DC9CE3 /* Pods_iWatchTests.framework */; };
-		FE45895B21724F3000CDD6EF /* Pods_iWatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE632DCC2172446700DC9CE3 /* Pods_iWatchUITests.framework */; };
-		FE45895E2172681000CDD6EF /* MoviesNetworkingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE45895D2172681000CDD6EF /* MoviesNetworkingViewModel.swift */; };
+		FE45895E2172681000CDD6EF /* MoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE45895D2172681000CDD6EF /* MoviesViewModel.swift */; };
 		FE54A7C61F76A11D0012E601 /* GenreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE54A7C41F76A11D0012E601 /* GenreTableViewCell.swift */; };
 		FE54A7C71F76A11D0012E601 /* GenreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE54A7C51F76A11D0012E601 /* GenreTableViewCell.xib */; };
 		FE6F78291F6BDF870089A9BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6F78281F6BDF870089A9BB /* AppDelegate.swift */; };
@@ -44,10 +42,6 @@
 		1E666036B7FB93D62A77F192 /* Pods-iWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWatch.release.xcconfig"; path = "Pods/Target Support Files/Pods-iWatch/Pods-iWatch.release.xcconfig"; sourceTree = "<group>"; };
 		2ABD9BB6E9BDD9B076D57DC7 /* Pods-iWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWatch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iWatch/Pods-iWatch.debug.xcconfig"; sourceTree = "<group>"; };
 		3259853083CE6D593562CA31 /* Pods_iWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		327C6545C61A53AD9217B1E1 /* Pods-iWatchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWatchUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iWatchUITests/Pods-iWatchUITests.release.xcconfig"; sourceTree = "<group>"; };
-		3A8D145D33A17E5714ABCCB9 /* Pods-iWatchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWatchUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iWatchUITests/Pods-iWatchUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		6695F37E88DAAAA93E37C28C /* Pods-iWatchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWatchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iWatchTests/Pods-iWatchTests.release.xcconfig"; sourceTree = "<group>"; };
-		9CEBFAC11DDA072D4C6C945A /* Pods-iWatchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWatchTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iWatchTests/Pods-iWatchTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FE16AB501F7CF6B200440CE8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		FE16AB521F7D138000440CE8 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		FE2226AA1F743B6D00BAFCE6 /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
@@ -55,11 +49,9 @@
 		FE30F7E51F7462FB008227E4 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		FE30F7E71F769B17008227E4 /* GenresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenresViewController.swift; sourceTree = "<group>"; };
 		FE4572441F838D9E00EADB33 /* GenresDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresDetailViewController.swift; sourceTree = "<group>"; };
-		FE45895D2172681000CDD6EF /* MoviesNetworkingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesNetworkingViewModel.swift; sourceTree = "<group>"; };
+		FE45895D2172681000CDD6EF /* MoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModel.swift; sourceTree = "<group>"; };
 		FE54A7C41F76A11D0012E601 /* GenreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreTableViewCell.swift; sourceTree = "<group>"; };
 		FE54A7C51F76A11D0012E601 /* GenreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GenreTableViewCell.xib; sourceTree = "<group>"; };
-		FE632DCA2172445800DC9CE3 /* Pods_iWatchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_iWatchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE632DCC2172446700DC9CE3 /* Pods_iWatchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_iWatchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE6F78251F6BDF870089A9BB /* iWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE6F78281F6BDF870089A9BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE6F782D1F6BDF870089A9BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,10 +59,6 @@
 		FE6F78321F6BDF870089A9BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE6F78351F6BDF870089A9BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE6F78371F6BDF870089A9BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FE6F78401F6BDF870089A9BB /* iWatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iWatchTests.swift; sourceTree = "<group>"; };
-		FE6F78421F6BDF870089A9BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FE6F784B1F6BDF870089A9BB /* iWatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iWatchUITests.swift; sourceTree = "<group>"; };
-		FE6F784D1F6BDF870089A9BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE6F785E1F6BE21C0089A9BB /* PopularMoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularMoviesViewController.swift; sourceTree = "<group>"; };
 		FE6F78621F6BE2D20089A9BB /* GetListMovies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetListMovies.swift; sourceTree = "<group>"; };
 		FE6F78641F6BE6E80089A9BB /* AllMoviesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllMoviesModel.swift; sourceTree = "<group>"; };
@@ -92,8 +80,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE45895921724F3000CDD6EF /* Pods_iWatch.framework in Frameworks */,
-				FE45895A21724F3000CDD6EF /* Pods_iWatchTests.framework in Frameworks */,
-				FE45895B21724F3000CDD6EF /* Pods_iWatchUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,10 +91,6 @@
 			children = (
 				2ABD9BB6E9BDD9B076D57DC7 /* Pods-iWatch.debug.xcconfig */,
 				1E666036B7FB93D62A77F192 /* Pods-iWatch.release.xcconfig */,
-				9CEBFAC11DDA072D4C6C945A /* Pods-iWatchTests.debug.xcconfig */,
-				6695F37E88DAAAA93E37C28C /* Pods-iWatchTests.release.xcconfig */,
-				3A8D145D33A17E5714ABCCB9 /* Pods-iWatchUITests.debug.xcconfig */,
-				327C6545C61A53AD9217B1E1 /* Pods-iWatchUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -116,8 +98,6 @@
 		ECCD9E55BB6254E4BBEEB838 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FE632DCC2172446700DC9CE3 /* Pods_iWatchUITests.framework */,
-				FE632DCA2172445800DC9CE3 /* Pods_iWatchTests.framework */,
 				3259853083CE6D593562CA31 /* Pods_iWatch.framework */,
 			);
 			name = Frameworks;
@@ -136,7 +116,7 @@
 		FE45895C217267C900CDD6EF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				FE45895D2172681000CDD6EF /* MoviesNetworkingViewModel.swift */,
+				FE45895D2172681000CDD6EF /* MoviesViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -145,8 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				FE6F78271F6BDF870089A9BB /* iWatch */,
-				FE6F783F1F6BDF870089A9BB /* iWatchTests */,
-				FE6F784A1F6BDF870089A9BB /* iWatchUITests */,
 				FE6F78261F6BDF870089A9BB /* Products */,
 				44CE5C48B1F2535DE289B4E4 /* Pods */,
 				ECCD9E55BB6254E4BBEEB838 /* Frameworks */,
@@ -174,24 +152,6 @@
 				FE6F78321F6BDF870089A9BB /* Assets.xcassets */,
 			);
 			path = iWatch;
-			sourceTree = "<group>";
-		};
-		FE6F783F1F6BDF870089A9BB /* iWatchTests */ = {
-			isa = PBXGroup;
-			children = (
-				FE6F78401F6BDF870089A9BB /* iWatchTests.swift */,
-				FE6F78421F6BDF870089A9BB /* Info.plist */,
-			);
-			path = iWatchTests;
-			sourceTree = "<group>";
-		};
-		FE6F784A1F6BDF870089A9BB /* iWatchUITests */ = {
-			isa = PBXGroup;
-			children = (
-				FE6F784B1F6BDF870089A9BB /* iWatchUITests.swift */,
-				FE6F784D1F6BDF870089A9BB /* Info.plist */,
-			);
-			path = iWatchUITests;
 			sourceTree = "<group>";
 		};
 		FE6F78591F6BDF8F0089A9BB /* Controller */ = {
@@ -402,7 +362,7 @@
 				FE30F7E81F769B17008227E4 /* GenresViewController.swift in Sources */,
 				FE81B15F1F79468B00A3D446 /* SearchViewController.swift in Sources */,
 				FEEC4BD61F7165590098C492 /* MovieDetailViewController.swift in Sources */,
-				FE45895E2172681000CDD6EF /* MoviesNetworkingViewModel.swift in Sources */,
+				FE45895E2172681000CDD6EF /* MoviesViewModel.swift in Sources */,
 				FEAD13441F6E8BF7003824CA /* MovieCollectionViewCell.swift in Sources */,
 				FE54A7C61F76A11D0012E601 /* GenreTableViewCell.swift in Sources */,
 				FEFFCF7E1F7D7DDC00C144B8 /* PopularViewController.swift in Sources */,
@@ -484,6 +444,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -544,6 +505,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -571,6 +533,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E6C4YFV8FJ;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = iWatch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -591,6 +554,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E6C4YFV8FJ;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = iWatch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -17,70 +17,93 @@ class PopularViewController: UIViewController {
     var currentPage = 1
 
     @IBOutlet weak var collectionView: UICollectionView!
-  
+    private var viewModel = MoviesViewModel()
+//    lazy private var viewModel: MoviesViewModel = {
+//        return MoviesViewModel()
+//    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupView()
+        
     }
     
-    private var networkingModel = MoviesNetworkingModel()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print()
-        networkingModel.getMovies(page: currentPage, collectionView: collectionView)
-    }
-    
-    
-    private func scrollToTop() {
-        let delay = 0.1 * Double(NSEC_PER_SEC)
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)) { () in
-            let firstRowIndexPath = IndexPath(item: 0, section: 0)
-            self.collectionView.scrollToItem(at: firstRowIndexPath, at: .top, animated: true)
-        }
+        print(CFGetRetainCount(viewModel))
+        viewModel.getMovies(page: currentPage, collectionView: collectionView, showError: {
+
+            print("Internet connection error")
+            self.viewModel.presentAlertController(vc: self, message: "Internet connection error")
+
+        })
+        
     }
     
     
     private func setupView() {
         
-        if #available(iOS 11.0, *) {
-            collectionView.contentInsetAdjustmentBehavior = .never
-        }
         collectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MovieCollectionViewCell")
         self.navigationController?.navigationBar.isHidden = true
+        
+    }
+    
+    private func setupCell(_ cell: MovieCollectionViewCell, indexPath: IndexPath) {
+        
+        let movie = viewModel.movies[indexPath.row]
+        cell.posterRating.text = movie.rating()
+        cell.posterName.text = movie.movieTitle
+        cell.posterDescription.text = movie.movieOverview
+
+        if let backgroundImage = movie.backgroundImage {
+            guard let url = URL(string: ApiUrls.basic + backgroundImage) else { return }
+            cell.posterImage.sd_setImage(with: url)
+        }
+        
+        cell.layer.cornerRadius = 12
+        
     }
     
 
 }
 
+
 extension PopularViewController: UICollectionViewDataSource {
+   
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return networkingModel.movies.count
+        return viewModel.movies.count
         
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollectionViewCell", for: indexPath) as! MovieCollectionViewCell
         
-        networkingModel.setupCell(cell, indexPath: indexPath)
+        setupCell(cell, indexPath: indexPath)
         
         return cell
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        let lastItem = networkingModel.movies.count - 4
+        let lastItem = viewModel.movies.count  - 4
+
         if indexPath.row == lastItem {
+
             currentPage += 1
-            networkingModel.getMovies(page: currentPage, collectionView: collectionView)
+            viewModel.getMovies(page: currentPage, collectionView: collectionView, showError: {
+                 self.viewModel.presentAlertController(vc: self, message: "Internet connection error")
+            })
         }
         
     }
+    
     
 }
 
@@ -92,7 +115,7 @@ extension PopularViewController: UICollectionViewDelegate {
         
         if let vc = storyboard.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController {
             
-            vc.movieID = networkingModel.movies[indexPath.row].movieID
+            vc.movieID = viewModel.movies[indexPath.row].movieID
             navigationController?.pushViewController(vc, animated: true)
             
         }

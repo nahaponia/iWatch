@@ -1,6 +1,0 @@
-framework module Pods_iWatchTests {
-  umbrella header "Pods-iWatchTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
