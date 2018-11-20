@@ -12,12 +12,13 @@ import CoreData
 
 class MovieDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     
+    
     var movieID: Int!
     var indexPath: Int?
-    private var movie: Movies?
-    private var storedMovies: MoviesEntity?
     
     private var dataStore = DataStore()
+    private var storedMovies: MoviesEntity?
+    private var viewModel = SearchMoviesViewModel()
 
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var posterImage: UIImageView!
@@ -29,78 +30,99 @@ class MovieDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var filmTagline: UILabel!
     @IBOutlet weak var filmPruducedby: UILabel!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        getMovieInfo()
-    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
     
+    
+    private func getMovieInfo() {
+        
+       
+        viewModel.getMovieBy(movieID: movieID, reloadView: {
+            
+            self.updateMoiveDetails()
+            
+        }, networkError: {
+            
+           self.viewModel.presentAlertController(vc: self, message: "Internet connection error")
+            
+        })
+        
+        
+    }
+    
+    
     private func setupView() {
-        self.tabBarController?.tabBar.isHidden = true
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+       
+        getMovieInfo()
+        tabBarController?.tabBar.isHidden = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
+        
         if let indexPath = indexPath {
             storedMovies = dataStore.fetchMovies()[indexPath]
         }
+        
     }
 
     
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        
         return true
+        
     }
+    
     
     @IBAction func backButton(_ sender: UIButton) {
+        
         navigationController?.popViewController(animated: true)
+        
     }
+    
     
     @IBAction func favoriteButton(_ sender: UIButton) {
-        if let movie = movie {
+        
+        if let movie = viewModel.movie {
             dataStore.saveMovie(movie)
         }
+        
     }
     
+    
     @IBAction func deleteButton(_ sender: UIButton) {
+        
         if let storedMovie = storedMovies {
             dataStore.deleteMovie(storedMovie)
         }
-    }
-    
-    private func getMovieInfo() {
-        GetMovies.byID(movieID) { [weak self] (movie) in
-            self?.movie = movie
-            self?.requestMovieInfo()
-        }
-    }
-    
-    
-    private func requestMovieInfo() {
-        
-        if let movie = movie {
-            
-            self.filmName.text = movie.movieTitle
-            self.filmTagline.text = movie.tagline
-            self.filmDescription.text = movie.movieOverview
-            self.filmRating.text = movie.rating() + "/10"
-            
-            guard let url = URL(string: ApiUrls.basic + movie.backgroundImage) else { return }
-            guard let url1 = URL(string: ApiUrls.getImage + movie.movieImage) else { return }
-            
-            self.backgroundImage.sd_setImage(with: url) { (image, error, cache, url) in
-                self.backgroundImage.image = image
-            }
-            self.posterImage.sd_setImage(with: url1) { (image, error, cache, url) in
-                self.posterImage.image = image
-            }
-        }
         
     }
+    
+
+    private func updateMoiveDetails() {
+        
+        let bckgrndImg = viewModel.movie?.backgroundImage ?? ""
+        let pstrImg = viewModel.movie?.movieImage ?? ""
+        let url = URL(string: ApiUrls.basic + bckgrndImg)
+        let url1 = URL(string: ApiUrls.getImage + pstrImg)
+            
+        backgroundImage.sd_setImage(with: url)
+        posterImage.sd_setImage(with: url1)
+            
+        filmName.text = viewModel.movie?.movieTitle
+        filmTagline.text = viewModel.movie?.tagline
+        filmDescription.text = viewModel.movie?.movieOverview
+        filmRating.text = viewModel.movie?.rating() ?? ""
+        
+    }
+    
         
 }
+
+

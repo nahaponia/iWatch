@@ -8,37 +8,41 @@
 
 import UIKit
 
-protocol GetMoviesByGenre: class {
-    
-}
 
-class PopularViewController: UIViewController {
+class PopularViewController: UIViewController  {
+    
     
     var currentPage = 1
 
     @IBOutlet weak var collectionView: UICollectionView!
-    private var viewModel = MoviesViewModel()
-//    lazy private var viewModel: MoviesViewModel = {
-//        return MoviesViewModel()
-//    }()
     
+    lazy private var viewModel: MoviesViewModel = {
+        return MoviesViewModel()
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        
+    
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print(CFGetRetainCount(viewModel))
-        viewModel.getMovies(page: currentPage, collectionView: collectionView, showError: {
-
-            print("Internet connection error")
-            self.viewModel.presentAlertController(vc: self, message: "Internet connection error")
-
-        })
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        networkRequest()
+    }
+    
+    
+    private func networkRequest() {
+       
+        guard viewModel.movies.count != 0 else {
+            
+            viewModel.getMovies(page: currentPage, collectionView: collectionView) {
+                self.viewModel.presentAlertController(vc: self, message: "Internet connection error")
+            }
+            
+            return
+        }
         
     }
     
@@ -47,6 +51,7 @@ class PopularViewController: UIViewController {
         
         collectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MovieCollectionViewCell")
         self.navigationController?.navigationBar.isHidden = true
+        
         
     }
     
@@ -68,6 +73,9 @@ class PopularViewController: UIViewController {
     
 
 }
+
+
+
 
 
 extension PopularViewController: UICollectionViewDataSource {
@@ -111,14 +119,15 @@ extension PopularViewController: UICollectionViewDataSource {
 extension PopularViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         let storyboard = UIStoryboard(name: "Popular", bundle: nil)
         
+        
         if let vc = storyboard.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController {
-            
             vc.movieID = viewModel.movies[indexPath.row].movieID
             navigationController?.pushViewController(vc, animated: true)
-            
         }
+        
     }
     
 }

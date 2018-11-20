@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8wB-hU-9FM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8wB-hU-9FM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -93,6 +93,7 @@
                             <constraint firstItem="uH8-jE-QT5" firstAttribute="leading" secondItem="Ebx-Jj-cNi" secondAttribute="leading" id="ZNe-Cy-Qrv"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="p64-9Y-6kq"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="uH8-jE-QT5" id="V7j-5K-nHz"/>
@@ -100,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q8S-kc-Lyp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="698.39999999999998" y="344.97751124437787"/>
+            <point key="canvasLocation" x="1637.5999999999999" y="344.97751124437787"/>
         </scene>
         <!--Genres-->
         <scene sceneID="oiO-vo-fqi">
@@ -123,7 +124,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="corngray" width="32" height="32"/>
-        <image name="cornwhite" width="32" height="32"/>
+        <image name="corngray" width="25.600000381469727" height="25.600000381469727"/>
+        <image name="cornwhite" width="25.600000381469727" height="25.600000381469727"/>
     </resources>
 </document>

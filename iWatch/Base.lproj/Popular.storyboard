@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13526" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XHj-ST-dMs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XHj-ST-dMs">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue-Medium</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Popular-->
         <scene sceneID="iLG-TI-6pg">
@@ -49,9 +42,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4km-RS-hqR">
-                                <rect key="frame" x="109" y="51" width="157" height="29"/>
+                                <rect key="frame" x="107.5" y="51" width="160" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="01J-w1-A1D"/>
+                                    <constraint firstAttribute="width" constant="160" id="ANB-OF-V7j"/>
                                 </constraints>
                                 <segments>
                                     <segment title="Popular"/>
@@ -70,11 +64,10 @@
                         <color key="backgroundColor" red="0.058823529409999999" green="0.058823529409999999" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="skF-o9-SCI" firstAttribute="top" secondItem="Wdv-JR-FvO" secondAttribute="bottom" id="2Yh-n6-nPl"/>
-                            <constraint firstItem="4km-RS-hqR" firstAttribute="leading" secondItem="GMG-ig-iWq" secondAttribute="leadingMargin" constant="93" id="HFA-dh-voB"/>
                             <constraint firstItem="4km-RS-hqR" firstAttribute="top" secondItem="B1S-Km-fIl" secondAttribute="bottom" constant="31" id="J1p-EO-uqe"/>
                             <constraint firstItem="Wdv-JR-FvO" firstAttribute="top" secondItem="4km-RS-hqR" secondAttribute="bottom" constant="17" id="O1X-5I-LAT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4km-RS-hqR" secondAttribute="trailing" constant="93" id="OsN-c6-NFI"/>
                             <constraint firstAttribute="trailing" secondItem="Wdv-JR-FvO" secondAttribute="trailing" id="Ynj-xa-AFK"/>
+                            <constraint firstItem="4km-RS-hqR" firstAttribute="centerX" secondItem="GMG-ig-iWq" secondAttribute="centerX" id="aIA-e7-5ku"/>
                             <constraint firstItem="Wdv-JR-FvO" firstAttribute="leading" secondItem="GMG-ig-iWq" secondAttribute="leading" id="bU8-6s-Ytu"/>
                         </constraints>
                     </view>
@@ -229,7 +222,7 @@
                                                     <constraint firstAttribute="height" constant="140" id="ZJJ-Pc-YKw"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Film Name + Date Released" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJh-3X-EiB">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJh-3X-EiB">
                                                 <rect key="frame" x="8" y="290" width="359" height="26.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="999" constant="20.5" id="EEr-2t-u3j"/>
@@ -257,7 +250,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6.2/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zla-9m-brc">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zla-9m-brc">
                                                 <rect key="frame" x="300" y="535.5" width="49" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="999" constant="49" id="7JV-IG-JnG"/>
@@ -296,17 +289,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tagline:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ysd-VY-Qc7">
-                                                <rect key="frame" x="8" y="677.5" width="103" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="lFX-0l-zoL"/>
-                                                    <constraint firstAttribute="width" constant="103" id="ny5-ql-fKC"/>
-                                                </constraints>
+                                                <rect key="frame" x="8" y="677.5" width="58" height="20"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51u-3n-YGr">
-                                                <rect key="frame" x="8" y="704.5" width="359" height="59"/>
+                                                <rect key="frame" x="8" y="703.5" width="359" height="59"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="59" id="LqU-VF-b6Q"/>
                                                 </constraints>
@@ -431,6 +420,6 @@
         <image name="12" width="32" height="32"/>
         <image name="4" width="32" height="32"/>
         <image name="7" width="32" height="32"/>
-        <image name="trash" width="32" height="32"/>
+        <image name="trash" width="25.600000381469727" height="25.600000381469727"/>
     </resources>
 </document>

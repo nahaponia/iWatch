@@ -15,7 +15,7 @@ struct Movies: Mappable {
     var movieTitle: String!
     var movieRating: Double!
     var movieImage: String!
-    var backgroundImage: String!
+    var backgroundImage: String?
     var movieOverview: String!
     var tagline: String!
     var movieReleaseDate: String!

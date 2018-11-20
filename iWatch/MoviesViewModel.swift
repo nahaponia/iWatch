@@ -6,52 +6,18 @@
 //  Copyright © 2018 Maxim. All rights reserved.
 //
 
-import Foundation
-import Alamofire
-import ObjectMapper
-
-class MoviesNetworking {
-    
-    
-     func popular(_ page: Int, completed: @escaping(Bool, [Movies]?) -> Void) {
-        
-        
-        let URL = ApiUrls.getPopular + "\(page)"
-        var movies = [Movies]()
-        
-        Alamofire.request(URL, method: .get).responseJSON {
-            response in
-            
-            guard let json = response.value as? [String: Any], let results = json["results"] as? [Any] else {
-                
-                completed(false, movies)
-                return
-            }
-            
-            results.forEach({ (result) in
-                let item = Mapper<Movies>().map(JSON: result as! [String : Any])
-                movies.append(item!)
-            })
-            
-            completed(true, movies)
-            
-        }
-
-    }
-    
-    
-}
-
+import UIKit
 
 class MoviesViewModel {
     
+    
     open var movies: [Movies] = []
     
-     func getMovies(page: Int, collectionView: UICollectionView, showError: @escaping () -> Void) {
-        print(CFGetRetainCount(moviesModel))
-        moviesModel.popular(page) { succes, movie in
+     func getMovies(page: Int, collectionView: UICollectionView, showError: @escaping () -> Void) { 
+        
+        moviesModel.popular(page) { [ unowned self ] succes, movie in
             print("Result from server: - \(succes)")
-            succes ? self.showMoviesData(mov: movie!, cw: collectionView) : showError()
+            succes ? self.showMoviesData(mov: movie, cw: collectionView) : showError()
 
         }
         
@@ -70,11 +36,7 @@ class MoviesViewModel {
     // Private
     
     private var moviesModel = MoviesNetworking()
-//
-//    init() {
-//        self.moviesModel = MoviesNetworking()
-//    }
-
+    
     private func showMoviesData(mov: [Movies], cw: UICollectionView) {
 
         movies.append(contentsOf: mov)
@@ -84,24 +46,6 @@ class MoviesViewModel {
     
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

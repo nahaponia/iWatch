@@ -10,90 +10,126 @@ import UIKit
 
 class GenresDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     
-    fileprivate var movies: [Movies]?
-    var genreID: Int = 0
-
+    
+    private var viewModel = GenresViewModel()
     @IBOutlet weak var collectionView: UICollectionView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        GetMovies.byGenres(genreID) { [weak self] movies in
-            self?.movies = movies
-            self?.collectionView.reloadData()
-        }
+        
+        navigationItem.hidesBackButton = true
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.barTintColor = .black
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
+        
     }
     
-    private func setupView() {
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
-        if #available(iOS 11.0, *) {
-            collectionView.contentInsetAdjustmentBehavior = .never
-        }
-        self.collectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MovieCollectionViewCell")
-    }
-    
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
-    
-    fileprivate func setupCell(_ cell: MovieCollectionViewCell, movie: Movies, indexPath: IndexPath) {
-        if let movie = movies?[indexPath.row] {
-            
-            cell.posterRating.text = "\(movie.movieRating!)"
-            cell.posterName.text = movie.movieTitle
-            cell.posterDescription.text = movie.movieOverview
-            
-            //FIXME: use image as optional value
-            
-            if let url = URL(string: ApiUrls.basic + movie.backgroundImage) {
-                
-                cell.posterImage.sd_setImage(with: url ) { (image, error, cache, url) in
-                    cell.posterImage.image = image
-                }
-                
-            }
-            
-            
-        }
-        cell.layer.cornerRadius = 12
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
+    
+    var genreID: Int = 0
+
+    private func getMoviesByGenre() {
+        
+        viewModel.getMoviesBySelectedGenre(genre: genreID, collectionView: collectionView) {
+            
+            self.viewModel.presentAlertController(vc: self, message: "Internet conection error")
+            
+        }
+        
+    }
+    
+    
+    private func setupView() {
+        
+        
+        collectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MovieCollectionViewCell")
+        
+        getMoviesByGenre()
+        
+    }
+    
+    
+    
+    fileprivate func setupCell(_ cell: MovieCollectionViewCell, movie: Movies, indexPath: IndexPath) {
+        
+        cell.layer.cornerRadius = 12
+        cell.posterRating.text = "\(movie.movieRating!)"
+        cell.posterName.text = movie.movieTitle
+        cell.posterDescription.text = movie.movieOverview
+        
+        let movieImage = movie.backgroundImage ?? ""
+        guard let url = URL(string: ApiUrls.basic + movieImage) else  { return }
+        
+        cell.posterImage.sd_setImage(with: url)
+        
+    }
+
+    
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        
+        return true
+        
+    }
+   
+    
 }
+
 
 extension GenresDetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if let movies = movies { return movies.count } else { return 0 }
+        return viewModel.movies.count
         
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollectionViewCell", for: indexPath) as! MovieCollectionViewCell
         
-        if let movie = movies?[indexPath.row] {
-            setupCell(cell, movie: movie, indexPath: indexPath)
-        }
+        setupCell(cell, movie: viewModel.movies[indexPath.row], indexPath: indexPath)
         
         return cell
+        
     }
+    
+    
 
 }
+
+extension GenresDetailViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let vc = Storyboards.viewController(storyboard: "Popular", controller: "MovieDetailViewController") as! MovieDetailViewController
+        vc.movieID = viewModel.movies[indexPath.row].movieID
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+}
+
 
 extension GenresDetailViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return CGSize(width: view.frame.width - 24, height: 370)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
+        
     }
     
 }

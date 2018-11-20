@@ -54,12 +54,11 @@ final class DataStore: NSObject {
         do {
             
             let result = try context.fetch(fetchRequest) as! [MoviesEntity]
+            
             if result.count == 0 {
                 return []
             } else {
-                
                 return result
-                
             }
             
         } catch let error {
