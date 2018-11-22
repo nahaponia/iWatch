@@ -11,7 +11,7 @@ import CoreData
 
 final class DataStore: NSObject {
     
-    var coreDataManager = CoreDataManager()
+    var coreDataManager = CoreDataStack()
     var storedMovies = [MoviesEntity]()
     
     var context = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.mainQueueConcurrencyType)
@@ -23,7 +23,7 @@ final class DataStore: NSObject {
     }
     
     
-    func saveMovie(_ movies: Movies) {
+    func saveMovie(_ movies: Movies, indexPath: Int) {
        
         let entityDescription = NSEntityDescription.entity(forEntityName: "MoviesEntity", in: context)
         let movieToSave = MoviesEntity(entity:entityDescription!, insertInto: context)
@@ -35,7 +35,9 @@ final class DataStore: NSObject {
         movieToSave.movieRating = movies.movieRating
         movieToSave.tagline = movies.tagline
         movieToSave.backgroundImage = movies.backgroundImage
-        movieToSave.setValue(movies.movieID, forKey: "movieID")
+        movieToSave.isFavourite = true
+        movieToSave.currentIndex = Int64(indexPath)
+        movieToSave.movieID = Int64(movies.movieID)
 
         do {
             try context.save()

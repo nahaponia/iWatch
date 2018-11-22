@@ -52,10 +52,22 @@ class SearchMoviesViewModel {
     }
     
     
+    func isMovieInFavourites(movie indexPath: Int) -> Bool {
+        
+        let mov = dataStore.fetchMovies().filter { $0.currentIndex == indexPath }.first?.isFavourite
+        
+        guard mov != nil else { return false }
+        
+        return true
+        
+    }
+    
+    
     // Private
     
     
     private var moviesModel = SearchMovies()
+    private var dataStore = DataStore()
     
     private func reloadTableView(tw: UITableView, mov: [Movies]) {
         

@@ -78,15 +78,12 @@ extension FavouriteViewController: UICollectionViewDataSource {
 extension FavouriteViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Popular", bundle: nil)
-       
-        if let vc = storyboard.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController {
+        
+        let vc = Storyboards.viewController(storyboard: "Popular", controller: "MovieDetailViewController") as! MovieDetailViewController
+        vc.movieID = Int(storedMovie[indexPath.row].movieID)
+        vc.indexPath = Int(storedMovie[indexPath.row].currentIndex)
+        navigationController?.pushViewController(vc, animated: true)
             
-            vc.movieID = Int(storedMovie[indexPath.row].movieID)
-            vc.indexPath = indexPath.row
-            navigationController?.pushViewController(vc, animated: true)
-            
-        }
     }
     
 }

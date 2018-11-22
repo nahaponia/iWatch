@@ -9,30 +9,36 @@
 import Foundation
 import CoreData
 
-final class CoreDataManager {
+final class CoreDataStack {
+    
     
     // MARK: - Core Data stack
+    
     
     lazy var applicationDocumentsDirectory: URL = {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return urls[urls.count-1]
     }()
     
+    
     lazy var managedObjectModel: NSManagedObjectModel = {
         let modelURL = Bundle.main.url(forResource: "iWatch", withExtension: "momd")!
         return NSManagedObjectModel(contentsOf: modelURL)!
     }()
     
+    
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
-        // Create the coordinator and store
-        let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.appendingPathComponent("iWatch.sqlite")
+        
+        let coordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
+        let url = applicationDocumentsDirectory.appendingPathComponent("iWatch.sqlite")
         var failureReason = "There was an error creating or loading the application's saved data."
         
         do {
-            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
+            
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: [NSMigratePersistentStoresAutomaticallyOption : true, NSInferMappingModelAutomaticallyOption: true ])
+            
         } catch {
-            // Report any error we got.
+            
             var dict = [String: AnyObject]()
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data" as AnyObject?
             dict[NSLocalizedFailureReasonErrorKey] = failureReason as AnyObject?
@@ -48,22 +54,30 @@ final class CoreDataManager {
     }()
     
     lazy var managedObjectContext: NSManagedObjectContext = {
-        let coordinator = self.persistentStoreCoordinator
+        
+        let coordinator = persistentStoreCoordinator
         var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
+        
     }()
     
-    // MARK: - Core Data Saving support
     
     func saveContext () {
+        
         if managedObjectContext.hasChanges {
-            do {
-                try managedObjectContext.save()
-            } catch {
-                print("Unresolved error \(error), \(String(describing: error._userInfo))")
-                abort()
+            
+            managedObjectContext.performAndWait {
+                
+                do {
+                    try managedObjectContext.save()
+                }
+                catch {
+                     print("Unresolved error \(error), \(String(describing: error._userInfo))")
+                }
+                
             }
+            
         }
     }
     

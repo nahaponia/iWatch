@@ -12,8 +12,8 @@ struct Storyboards {
     
     static func viewController(storyboard: String, controller: String) -> UIViewController {
         
-        let storyboard = UIStoryboard(name: "Popular", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "MovieDetailViewController")
+        let storyboard = UIStoryboard(name: storyboard, bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: controller)
         return vc
     }
     

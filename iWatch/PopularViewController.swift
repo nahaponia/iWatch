@@ -120,13 +120,11 @@ extension PopularViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let storyboard = UIStoryboard(name: "Popular", bundle: nil)
         
-        
-        if let vc = storyboard.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController {
-            vc.movieID = viewModel.movies[indexPath.row].movieID
-            navigationController?.pushViewController(vc, animated: true)
-        }
+        let vc = Storyboards.viewController(storyboard: "Popular", controller: "MovieDetailViewController") as! MovieDetailViewController
+        vc.movieID = viewModel.movies[indexPath.row].movieID
+        vc.indexPath = indexPath.row
+        navigationController?.pushViewController(vc, animated: true)
         
     }
     

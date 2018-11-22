@@ -12,24 +12,23 @@ import CoreData
 
 class MovieDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     
-    
-    var movieID: Int!
-    var indexPath: Int?
+    var movieID: Int = 0
+    var indexPath: Int = 0
     
     private var dataStore = DataStore()
     private var storedMovies: MoviesEntity?
     private var viewModel = SearchMoviesViewModel()
 
+    @IBOutlet weak var favouriteButton: UIButton!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var posterImage: UIImageView!
-    
     @IBOutlet weak var filmGenres: UILabel!
     @IBOutlet weak var filmName: UILabel!
     @IBOutlet weak var filmDescription: UILabel!
     @IBOutlet weak var filmRating: UILabel!
     @IBOutlet weak var filmTagline: UILabel!
     @IBOutlet weak var filmPruducedby: UILabel!
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +43,6 @@ class MovieDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     private func getMovieInfo() {
-        
        
         viewModel.getMovieBy(movieID: movieID, reloadView: {
             
@@ -58,20 +56,6 @@ class MovieDetailViewController: UIViewController, UIGestureRecognizerDelegate {
         
         
     }
-    
-    
-    private func setupView() {
-       
-        getMovieInfo()
-        tabBarController?.tabBar.isHidden = true
-        navigationController?.interactivePopGestureRecognizer?.delegate = self
-        
-        if let indexPath = indexPath {
-            storedMovies = dataStore.fetchMovies()[indexPath]
-        }
-        
-    }
-
     
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         
@@ -87,24 +71,31 @@ class MovieDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     
-    @IBAction func favoriteButton(_ sender: UIButton) {
+    @IBAction func favoriteButtonPressed(_ sender: UIButton) {
         
-        if let movie = viewModel.movie {
-            dataStore.saveMovie(movie)
-        }
+        viewModel.isMovieInFavourites(movie: indexPath) ? deleteMovie() : saveMovie()
         
     }
     
     
-    @IBAction func deleteButton(_ sender: UIButton) {
+    private func saveMovie() {
         
-        if let storedMovie = storedMovies {
-            dataStore.deleteMovie(storedMovie)
-        }
+        guard let movie = viewModel.movie else { return }
+        dataStore.saveMovie(movie, indexPath: indexPath)
+        favouriteButton.setImage(UIImage(named: "favourite-filled"), for: .normal)
         
     }
     
-
+    
+    private func deleteMovie() {
+        
+        let movie = dataStore.fetchMovies().filter { $0.currentIndex == indexPath }.first
+        dataStore.deleteMovie(movie!)
+        favouriteButton.setImage(UIImage(named: "favourite-unfilled"), for: .normal)
+        
+    }
+    
+    
     private func updateMoiveDetails() {
         
         let bckgrndImg = viewModel.movie?.backgroundImage ?? ""
@@ -119,6 +110,16 @@ class MovieDetailViewController: UIViewController, UIGestureRecognizerDelegate {
         filmTagline.text = viewModel.movie?.tagline
         filmDescription.text = viewModel.movie?.movieOverview
         filmRating.text = viewModel.movie?.rating() ?? ""
+        
+    }
+    
+    
+    private func setupView() {
+        
+        getMovieInfo()
+        tabBarController?.tabBar.isHidden = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
+        viewModel.isMovieInFavourites(movie: indexPath) ? favouriteButton.setImage(UIImage(named: "favourite-filled"), for: .normal) : nil
         
     }
     

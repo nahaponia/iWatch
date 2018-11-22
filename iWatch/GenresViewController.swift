@@ -71,14 +71,9 @@ extension GenresViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        let storyboard = UIStoryboard(name: "Genre", bundle: nil)
-        
-        if let vc = storyboard.instantiateViewController(withIdentifier: "GenresDetailViewController") as? GenresDetailViewController {
-            
-            vc.genreID = (viewModel.genres[indexPath.row].genreID)
-            navigationController?.pushViewController(vc, animated: true)
-            
-        }
+        let vc = Storyboards.viewController(storyboard: "Genre", controller: "GenresDetailViewController") as! GenresDetailViewController
+        vc.genreID = (viewModel.genres[indexPath.row].genreID)
+        navigationController?.pushViewController(vc, animated: true)
         
     }
     

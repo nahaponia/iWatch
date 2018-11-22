@@ -12,7 +12,7 @@
 		FE0B77E721A426590000399A /* SearchForMovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B77E621A426590000399A /* SearchForMovieService.swift */; };
 		FE0B77E921A427760000399A /* SearchMoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B77E821A427760000399A /* SearchMoviesViewModel.swift */; };
 		FE0B77EB21A43E200000399A /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B77EA21A43E200000399A /* Storyboards.swift */; };
-		FE16AB511F7CF6B200440CE8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16AB501F7CF6B200440CE8 /* CoreDataManager.swift */; };
+		FE16AB511F7CF6B200440CE8 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16AB501F7CF6B200440CE8 /* CoreDataStack.swift */; };
 		FE16AB531F7D138000440CE8 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16AB521F7D138000440CE8 /* DataStore.swift */; };
 		FE2226AB1F743B6D00BAFCE6 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2226AA1F743B6D00BAFCE6 /* ColorPalette.swift */; };
 		FE30F7E41F746193008227E4 /* Genre.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE30F7E21F746193008227E4 /* Genre.storyboard */; };
@@ -52,7 +52,7 @@
 		FE0B77E621A426590000399A /* SearchForMovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchForMovieService.swift; sourceTree = "<group>"; };
 		FE0B77E821A427760000399A /* SearchMoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMoviesViewModel.swift; sourceTree = "<group>"; };
 		FE0B77EA21A43E200000399A /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
-		FE16AB501F7CF6B200440CE8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		FE16AB501F7CF6B200440CE8 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		FE16AB521F7D138000440CE8 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		FE2226AA1F743B6D00BAFCE6 /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		FE30F7E31F746193008227E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Genre.storyboard; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 		FE16AB4F1F7CF69100440CE8 /* DataStore */ = {
 			isa = PBXGroup;
 			children = (
-				FE16AB501F7CF6B200440CE8 /* CoreDataManager.swift */,
+				FE16AB501F7CF6B200440CE8 /* CoreDataStack.swift */,
 				FE16AB521F7D138000440CE8 /* DataStore.swift */,
 				FE6F782F1F6BDF870089A9BB /* iWatch.xcdatamodeld */,
 			);
@@ -379,7 +379,7 @@
 				FE0B77E721A426590000399A /* SearchForMovieService.swift in Sources */,
 				FE4572451F838D9E00EADB33 /* GenresDetailViewController.swift in Sources */,
 				FEFFCF801F7D7DEA00C144B8 /* FavouriteViewController.swift in Sources */,
-				FE16AB511F7CF6B200440CE8 /* CoreDataManager.swift in Sources */,
+				FE16AB511F7CF6B200440CE8 /* CoreDataStack.swift in Sources */,
 				FE6F78631F6BE2D20089A9BB /* ListMoviesService.swift in Sources */,
 				FE6F78311F6BDF870089A9BB /* iWatch.xcdatamodeld in Sources */,
 				FE2226AB1F743B6D00BAFCE6 /* ColorPalette.swift in Sources */,
