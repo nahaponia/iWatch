@@ -10,16 +10,17 @@ import UIKit
 
 class MovieCollectionViewCell: UICollectionViewCell {
 
+    
     @IBOutlet weak var removeButton: UIButton!
     @IBOutlet weak var posterImage: UIImageView!
-    
     @IBOutlet weak var posterName: UILabel!
-
     @IBOutlet weak var posterRating: UILabel!
     @IBOutlet weak var posterDescription: UILabel!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         
         posterName.layer.shadowColor = UIColor.black.cgColor
         posterName.layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -37,5 +38,37 @@ class MovieCollectionViewCell: UICollectionViewCell {
         posterDescription.layer.shadowRadius = 6
         
     }
+    
+    
+    func setup(cell: MovieCollectionViewCell, indexPath: IndexPath, movie: Movies) {
+        
+        cell.posterRating.text = movie.rating()
+        cell.posterName.text = movie.movieTitle
+        cell.posterDescription.text = movie.movieOverview
+        
+        if let backgroundImage = movie.backgroundImage {
+            guard let url = URL(string: ApiUrls.basic + backgroundImage) else { return }
+            cell.posterImage.sd_setImage(with: url)
+        }
+        
+        cell.layer.cornerRadius = 12
+        
+    }
+    
+    
+    func setupFromCoreData(_ cell: MovieCollectionViewCell, indexPath: IndexPath, movie: MoviesEntity) {
+        
+        let image = movie.backgroundImage ?? ""
+        let url = URL(string: ApiUrls.basic + image)
+        
+        cell.posterRating.text = "\(movie.movieRating)"
+        cell.posterName.text = movie.movieTitle
+        cell.posterDescription.text = movie.movieOverview
+        cell.posterImage.sd_setImage(with: url)
+        
+        cell.layer.cornerRadius = 12
+        
+    }
+    
 
 }

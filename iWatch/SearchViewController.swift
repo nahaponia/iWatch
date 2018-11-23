@@ -56,30 +56,18 @@ class SearchViewController: UIViewController {
     }
     
     
-    fileprivate func setupCell(_ cell: SearchTableViewCell, movie: Movies, indexPath: IndexPath) {
-        
-        cell.moveName.text = viewModel.movies[indexPath.row].movieTitle
-        cell.movieYear.text = viewModel.movies[indexPath.row].movieReleaseDate
-        cell.movieRating.text = "\(viewModel.movies[indexPath.row].movieRating!)/10"
-        
-        let apiURL = viewModel.movies[indexPath.row].backgroundImage ?? ""
-        let url = URL(string: ApiUrls.basic + apiURL)
-        cell.movieImage.sd_setImage(with: url )
-        
-    }
-    
-    
 }
 
 extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = Bundle.main.loadNibNamed("SearchTableViewCell", owner: self, options: nil)?.first as! SearchTableViewCell
-        cell.backgroundColor = UIColor.clear
-
-        setupCell(cell, movie: viewModel.movies[indexPath.row], indexPath: indexPath)
+        
+        guard let cell = Bundle.main.loadNibNamed("SearchTableViewCell", owner: self, options: nil)?.first as? SearchTableViewCell else { return UITableViewCell() }
+        
+        cell.setup(cell, indexPath: indexPath, movie: viewModel.movies[indexPath.row])
         
         return cell
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -114,11 +102,7 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        viewModel.searchMovieBy(text: searchBar.text!, tableView: tableView) {
-            
-            self.viewModel.presentAlertController(vc: self, message: "Internet Connection Error")
-            
-        }
+        viewModel.searchMovieBy(text: searchBar.text!, tableView: tableView) { }
 
     }
     

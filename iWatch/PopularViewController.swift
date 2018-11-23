@@ -19,6 +19,7 @@ class PopularViewController: UIViewController  {
     lazy private var viewModel: MoviesViewModel = {
         return MoviesViewModel()
     }()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,21 +28,10 @@ class PopularViewController: UIViewController  {
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        networkRequest()
-    }
-    
-    
     private func networkRequest() {
-       
-        guard viewModel.movies.count != 0 else {
-            
-            viewModel.getMovies(page: currentPage, collectionView: collectionView) {
-                self.viewModel.presentAlertController(vc: self, message: "Internet connection error")
-            }
-            
-            return
+        
+        viewModel.getMovies(page: currentPage, collectionView: collectionView) {
+            self.viewModel.presentAlertController(vc: self, message: "Internet connection error")
         }
         
     }
@@ -52,22 +42,7 @@ class PopularViewController: UIViewController  {
         collectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MovieCollectionViewCell")
         self.navigationController?.navigationBar.isHidden = true
         
-        
-    }
-    
-    private func setupCell(_ cell: MovieCollectionViewCell, indexPath: IndexPath) {
-        
-        let movie = viewModel.movies[indexPath.row]
-        cell.posterRating.text = movie.rating()
-        cell.posterName.text = movie.movieTitle
-        cell.posterDescription.text = movie.movieOverview
-
-        if let backgroundImage = movie.backgroundImage {
-            guard let url = URL(string: ApiUrls.basic + backgroundImage) else { return }
-            cell.posterImage.sd_setImage(with: url)
-        }
-        
-        cell.layer.cornerRadius = 12
+        networkRequest()
         
     }
     
@@ -75,15 +50,12 @@ class PopularViewController: UIViewController  {
 }
 
 
-
-
-
 extension PopularViewController: UICollectionViewDataSource {
    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return viewModel.movies.count
+        return viewModel.numberOfRowsInSection()
         
     }
     
@@ -92,7 +64,7 @@ extension PopularViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollectionViewCell", for: indexPath) as! MovieCollectionViewCell
         
-        setupCell(cell, indexPath: indexPath)
+        cell.setup(cell: cell, indexPath: indexPath, movie: viewModel.movies[indexPath.row])
         
         return cell
     }

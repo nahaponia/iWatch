@@ -58,7 +58,7 @@ extension GenresViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return viewModel.genres.count
+        return viewModel.numberOfRowsInSection()
         
     }
     

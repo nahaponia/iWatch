@@ -20,12 +20,13 @@ class SearchMoviesViewModel {
         
         moviesModel.getMovieByID(movieID) { (succes, response) in
             
-            if succes {
-                self.movie = response!
-                reloadView()
-            } else {
+            guard succes else {
                 networkError()
+                return
             }
+            
+            self.movie = response!
+            reloadView()
             
         }
         
@@ -67,6 +68,7 @@ class SearchMoviesViewModel {
     
     
     private var moviesModel = SearchMovies()
+    
     private var dataStore = DataStore()
     
     private func reloadTableView(tw: UITableView, mov: [Movies]) {

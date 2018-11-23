@@ -32,12 +32,19 @@ class MoviesViewModel {
         
     }
     
+    
+    func numberOfRowsInSection() -> Int {
+        
+        return movies.count
+        
+    }
+    
    
-    
-    
     // Private
     
-    private var moviesModel = MoviesNetworking()
+    
+    private var moviesModel =  MoviesNetworking()
+    
     
     private func showMoviesData(mov: [Movies], cw: UICollectionView) {
 

@@ -46,6 +46,13 @@ class GenresViewModel {
     }
     
     
+    func numberOfRowsInSection() -> Int {
+        
+        return movies.count
+        
+    }
+    
+    
     // Private
     
     private var genresModel = GetMovieGenres()

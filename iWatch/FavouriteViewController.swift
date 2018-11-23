@@ -20,34 +20,30 @@ class FavouriteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupView()
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupView()
+        
+        fetchFavouriteMovies()
     }
     
     
     private func setupView() {
-        storedMovie = dataStore.fetchMovies()
-        collectionView.reloadData()
+        
         collectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MovieCollectionViewCell")
         self.navigationController?.navigationBar.isHidden = true
+        
     }
     
     
-    fileprivate func setupCell(_ cell: MovieCollectionViewCell, movie: MoviesEntity, indexPath: IndexPath) {
+    private func fetchFavouriteMovies() {
         
-        let movie = storedMovie[indexPath.row]
-            
-        cell.posterRating.text = "\(movie.movieRating)"
-        cell.posterName.text = movie.movieTitle
-        cell.posterDescription.text = movie.movieOverview
-        let image = movie.backgroundImage ?? ""
-        let url = URL(string: ApiUrls.basic + image)
-        cell.posterImage.sd_setImage(with: url )
-        cell.layer.cornerRadius = 12
+        storedMovie = dataStore.fetchMovies()
+        collectionView.reloadData()
         
     }
     
@@ -57,25 +53,28 @@ class FavouriteViewController: UIViewController {
 
 extension FavouriteViewController: UICollectionViewDataSource {
     
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
        
         return storedMovie.count
         
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollectionViewCell", for: indexPath) as! MovieCollectionViewCell
-        
-        let movie = storedMovie[indexPath.row]
-        setupCell(cell, movie: movie, indexPath: indexPath)
+        cell.setupFromCoreData(cell, indexPath: indexPath, movie: storedMovie[indexPath.row])
         
         return cell
     }
+    
+    
 }
 
 
 extension FavouriteViewController: UICollectionViewDelegate {
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -86,15 +85,18 @@ extension FavouriteViewController: UICollectionViewDelegate {
             
     }
     
+    
 }
 
 
 extension FavouriteViewController: UICollectionViewDelegateFlowLayout {
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return CGSize(width: view.frame.width - 24, height: 370)
         
     }
+    
     
 }
