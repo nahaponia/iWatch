@@ -15,10 +15,16 @@ class MovieDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     var movieID: Int = 0
     var indexPath: Int = 0
     
-    private var dataStore = DataStore()
+    private let dataStore = DataStore()
     private var storedMovies: MoviesEntity?
-    private var viewModel = SearchMoviesViewModel()
-
+    
+    private let searchMovie = SearchMovies()
+    
+    lazy private var viewModel: SearchMoviesViewModel = {
+        return SearchMoviesViewModel(moviesModel: searchMovie)
+    }()
+    
+    
     @IBOutlet weak var favouriteButton: UIButton!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var posterImage: UIImageView!

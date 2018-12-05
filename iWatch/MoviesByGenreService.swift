@@ -34,7 +34,7 @@ class GetMovieGenres: GetMovieGenresProtocol {
                 completed(false, genre)
                 return
             }
-            
+            print(response)
             genres.forEach({ (result) in
                 let item = Mapper<Genres>().map(JSON: result as! [String : Any])
                 genre.append(item!)

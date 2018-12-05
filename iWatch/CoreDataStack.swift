@@ -53,6 +53,7 @@ final class CoreDataStack {
         return coordinator
     }()
     
+    
     lazy var managedObjectContext: NSManagedObjectContext = {
         
         let coordinator = persistentStoreCoordinator
@@ -77,8 +78,8 @@ final class CoreDataStack {
                 }
                 
             }
-            
         }
+        
     }
     
 }

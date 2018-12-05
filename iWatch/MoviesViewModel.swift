@@ -13,6 +13,7 @@ class MoviesViewModel {
     
     open var movies: [Movies] = []
     
+    
      func getMovies(page: Int, collectionView: UICollectionView, showError: @escaping () -> Void) { 
         
         moviesModel.popular(page) { [ unowned self ] succes, movie in
@@ -39,12 +40,17 @@ class MoviesViewModel {
         
     }
     
+    
+    let moviesModel: MoviesNetworking
+    
+    init(moviesModel: MoviesNetworking) {
+        
+        self.moviesModel = moviesModel
+        
+    }
+    
    
     // Private
-    
-    
-    private var moviesModel =  MoviesNetworking()
-    
     
     private func showMoviesData(mov: [Movies], cw: UICollectionView) {
 

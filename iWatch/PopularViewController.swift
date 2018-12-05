@@ -12,12 +12,15 @@ import UIKit
 class PopularViewController: UIViewController  {
     
     
-    var currentPage = 1
-
+    private var currentPage = 1
+    private let identifier = CellIdentifiers.CollectionView.MovieCollectionViewCell
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
+    private let moviesNetworking = MoviesNetworking()
+    
     lazy private var viewModel: MoviesViewModel = {
-        return MoviesViewModel()
+        return MoviesViewModel(moviesModel: moviesNetworking)
     }()
 
     
@@ -37,9 +40,11 @@ class PopularViewController: UIViewController  {
     }
     
     
+    
+    
     private func setupView() {
         
-        collectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MovieCollectionViewCell")
+        collectionView.register(UINib(nibName: identifier, bundle: nil), forCellWithReuseIdentifier: identifier)
         self.navigationController?.navigationBar.isHidden = true
         
         networkRequest()
@@ -62,9 +67,12 @@ extension PopularViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollectionViewCell", for: indexPath) as! MovieCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? MovieCollectionViewCell else {
+            
+            return UICollectionViewCell()
+        }
         
-        cell.setup(cell: cell, indexPath: indexPath, movie: viewModel.movies[indexPath.row])
+        cell.setup(indexPath: indexPath, movie: viewModel.movies[indexPath.row])
         
         return cell
     }
@@ -91,10 +99,11 @@ extension PopularViewController: UICollectionViewDataSource {
 extension PopularViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        
+       
         let vc = Storyboards.viewController(storyboard: "Popular", controller: "MovieDetailViewController") as! MovieDetailViewController
-        vc.movieID = viewModel.movies[indexPath.row].movieID
+        
+        
+        vc.movieID = self.viewModel.movies[indexPath.row].movieID
         vc.indexPath = indexPath.row
         navigationController?.pushViewController(vc, animated: true)
         

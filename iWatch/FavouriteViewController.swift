@@ -64,7 +64,7 @@ extension FavouriteViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollectionViewCell", for: indexPath) as! MovieCollectionViewCell
-        cell.setupFromCoreData(cell, indexPath: indexPath, movie: storedMovie[indexPath.row])
+        cell.setupFromCoreData(indexPath: indexPath, movie: storedMovie[indexPath.row])
         
         return cell
     }

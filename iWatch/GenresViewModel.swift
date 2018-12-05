@@ -17,7 +17,9 @@ class GenresViewModel {
     
     func getGenres(tableView: UITableView, showError: @escaping () -> Void) {
         
-        genresModel.getAllGenres { [unowned self] (succes, response) in
+        genresModel.getAllGenres { [weak self] (succes, response) in
+            
+            guard let self = self else { return }
             
             succes ? self.showAllGenres(response, tw: tableView) : showError()
             
@@ -28,7 +30,10 @@ class GenresViewModel {
     
     func getMoviesBySelectedGenre(genre: Int, collectionView: UICollectionView, showError: @escaping () -> Void) {
         
-        genresModel.getSelectedGenres(genre) { [unowned self] (succes, response) in
+        genresModel.getSelectedGenres(genre) { [weak self] (succes, response) in
+            print(response)
+            
+            guard let self = self else { return }
             
             succes ? self.showMoviesByGenre(movie: response, cw: collectionView) : showError()
             
@@ -53,9 +58,24 @@ class GenresViewModel {
     }
     
     
+    func numberOfJenresInSection() -> Int {
+    
+        return genres.count
+    
+    }
+    
+    
+    let genresModel: GetMovieGenres
+    
+    init(model: GetMovieGenres) {
+        
+        self.genresModel = model
+        
+    }
+    
+    
     // Private
     
-    private var genresModel = GetMovieGenres()
     
     private func showAllGenres(_ genre: [Genres], tw: UITableView) {
         

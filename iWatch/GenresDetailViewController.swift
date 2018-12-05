@@ -11,7 +11,13 @@ import UIKit
 class GenresDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
-    private var viewModel = GenresViewModel()
+    private let getMovieGenres = GetMovieGenres()
+
+    lazy private var viewModel: GenresViewModel = {
+        return GenresViewModel(model: getMovieGenres)
+    }()
+
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     

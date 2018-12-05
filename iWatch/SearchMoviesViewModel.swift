@@ -64,10 +64,17 @@ class SearchMoviesViewModel {
     }
     
     
+    let moviesModel: SearchMovies
+    
+    init(moviesModel: SearchMovies) {
+        
+        self.moviesModel = moviesModel
+        
+    }
+    
+    
     // Private
     
-    
-    private var moviesModel = SearchMovies()
     
     private var dataStore = DataStore()
     

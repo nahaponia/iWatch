@@ -12,5 +12,8 @@ class GenreTableViewCell: UITableViewCell {
 
     @IBOutlet weak var genreLabel: UILabel!
     
+ 
+    
+    
     
 }

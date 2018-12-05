@@ -35,6 +35,7 @@
 		FE81B15F1F79468B00A3D446 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE81B15E1F79468B00A3D446 /* SearchViewController.swift */; };
 		FE906A9A1F794A300019C0B0 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE906A981F794A300019C0B0 /* SearchTableViewCell.swift */; };
 		FE906A9B1F794A300019C0B0 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE906A991F794A300019C0B0 /* SearchTableViewCell.xib */; };
+		FEAADFC521B8257A00D0237B /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAADFC421B8257A00D0237B /* Identifiers.swift */; };
 		FEAD13441F6E8BF7003824CA /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAD13421F6E8BF7003824CA /* MovieCollectionViewCell.swift */; };
 		FEAD13451F6E8BF7003824CA /* MovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEAD13431F6E8BF7003824CA /* MovieCollectionViewCell.xib */; };
 		FEEC4BD41F7011FE0098C492 /* Popular.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEEC4BD21F7011FE0098C492 /* Popular.storyboard */; };
@@ -76,6 +77,7 @@
 		FE81B15E1F79468B00A3D446 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FE906A981F794A300019C0B0 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		FE906A991F794A300019C0B0 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
+		FEAADFC421B8257A00D0237B /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		FEAD13421F6E8BF7003824CA /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		FEAD13431F6E8BF7003824CA /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
 		FEEC4BD31F7011FE0098C492 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Popular.storyboard; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			children = (
 				FE2226AA1F743B6D00BAFCE6 /* ColorPalette.swift */,
 				FE6F78661F6BE7A80089A9BB /* ApiUrls.swift */,
+				FEAADFC421B8257A00D0237B /* Identifiers.swift */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				FEAD13441F6E8BF7003824CA /* MovieCollectionViewCell.swift in Sources */,
 				FE54A7C61F76A11D0012E601 /* GenreTableViewCell.swift in Sources */,
 				FEFFCF7E1F7D7DDC00C144B8 /* PopularViewController.swift in Sources */,
+				FEAADFC521B8257A00D0237B /* Identifiers.swift in Sources */,
 				FE906A9A1F794A300019C0B0 /* SearchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

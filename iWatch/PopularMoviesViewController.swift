@@ -41,7 +41,6 @@ class PopularMoviesViewController: UIViewController {
     }
     
     
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if let currentViewController = currentTabViewController {
@@ -49,12 +48,14 @@ class PopularMoviesViewController: UIViewController {
         }
     }
     
+    
     @IBAction func indexChanged(_ sender: UISegmentedControl) {
         self.currentTabViewController!.view.removeFromSuperview()
         self.currentTabViewController!.removeFromParent()
         
         displayCurrentTab(sender.selectedSegmentIndex)
     }
+    
     
     private func displayCurrentTab(_ tabIndex: Int){
         if let vc = viewControllerForSelectedSegmentIndex(tabIndex) {
@@ -68,8 +69,11 @@ class PopularMoviesViewController: UIViewController {
         }
     }
     
+    
     private func viewControllerForSelectedSegmentIndex(_ index: Int) -> UIViewController? {
+        
         var vc: UIViewController?
+        
         switch index {
         case TabIndex.firstTab.rawValue :
             vc = firstTabViewController
@@ -78,23 +82,31 @@ class PopularMoviesViewController: UIViewController {
         default:
             return nil
         }
+        
         return vc
+        
     }
     
-    // MARK: - View Methods
     
     private func setupView() {
+        
         displayCurrentTab(TabIndex.firstTab.rawValue)
         self.tabBarController?.tabBar.barTintColor = ColorPalette.backgroundBlack
         self.tabBarController?.delegate = self as UITabBarControllerDelegate
+        
     }
+    
     
 }
 
 extension PopularMoviesViewController: UITabBarControllerDelegate {
+    
+    
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         
     }
+    
+    
 }
 
 

@@ -11,8 +11,15 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-    private var viewModel = SearchMoviesViewModel()
-
+    private let identifier = CellIdentifiers.TableView.SearchTableViewCell
+    
+    private let searchMovie = SearchMovies()
+    
+    lazy private var viewModel: SearchMoviesViewModel = {
+        return SearchMoviesViewModel(moviesModel: searchMovie)
+    }()
+    
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableViewOfset: NSLayoutConstraint!
@@ -23,8 +30,15 @@ class SearchViewController: UIViewController {
         setupView()
     }
     
-    
+
     private func setupView() {
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.barTintColor = ColorPalette.backgroundBlack
+        
+        let nib = UINib(nibName: identifier, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: identifier)
         
         tableView.backgroundColor = ColorPalette.backgroundBlack
         searchBar.barTintColor = ColorPalette.backgroundBlack
@@ -62,9 +76,9 @@ extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = Bundle.main.loadNibNamed("SearchTableViewCell", owner: self, options: nil)?.first as? SearchTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? SearchTableViewCell else { return UITableViewCell() }
         
-        cell.setup(cell, indexPath: indexPath, movie: viewModel.movies[indexPath.row])
+        cell.setup(indexPath: indexPath, movie: viewModel.movies[indexPath.row])
         
         return cell
         

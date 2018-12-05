@@ -40,33 +40,33 @@ class MovieCollectionViewCell: UICollectionViewCell {
     }
     
     
-    func setup(cell: MovieCollectionViewCell, indexPath: IndexPath, movie: Movies) {
+    func setup(indexPath: IndexPath, movie: Movies) {
         
-        cell.posterRating.text = movie.rating()
-        cell.posterName.text = movie.movieTitle
-        cell.posterDescription.text = movie.movieOverview
+        posterRating.text = movie.rating()
+        posterName.text = movie.movieTitle
+        posterDescription.text = movie.movieOverview
         
-        if let backgroundImage = movie.backgroundImage {
-            guard let url = URL(string: ApiUrls.basic + backgroundImage) else { return }
-            cell.posterImage.sd_setImage(with: url)
-        }
+        let apiURL = movie.backgroundImage ?? ""
+        let url = URL(string: ApiUrls.basic + apiURL)
+        posterImage.sd_setImage(with: url)
         
-        cell.layer.cornerRadius = 12
+        
+        layer.cornerRadius = 12
         
     }
     
     
-    func setupFromCoreData(_ cell: MovieCollectionViewCell, indexPath: IndexPath, movie: MoviesEntity) {
+    func setupFromCoreData(indexPath: IndexPath, movie: MoviesEntity) {
         
         let image = movie.backgroundImage ?? ""
         let url = URL(string: ApiUrls.basic + image)
         
-        cell.posterRating.text = "\(movie.movieRating)"
-        cell.posterName.text = movie.movieTitle
-        cell.posterDescription.text = movie.movieOverview
-        cell.posterImage.sd_setImage(with: url)
+        posterRating.text = "\(movie.movieRating)"
+        posterName.text = movie.movieTitle
+        posterDescription.text = movie.movieOverview
+        posterImage.sd_setImage(with: url)
         
-        cell.layer.cornerRadius = 12
+        layer.cornerRadius = 12
         
     }
     

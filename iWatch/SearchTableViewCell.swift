@@ -24,15 +24,15 @@ class SearchTableViewCell: UITableViewCell {
     }
     
     
-    func setup(_ cell: SearchTableViewCell, indexPath: IndexPath, movie: Movies) {
+    func setup(indexPath: IndexPath, movie: Movies) {
         
-        cell.moveName.text = movie.movieTitle
-        cell.movieYear.text = movie.movieReleaseDate
-        cell.movieRating.text = "\(movie.movieRating ?? 0)/10"
+        moveName.text = movie.movieTitle
+        movieYear.text = movie.movieReleaseDate
+        movieRating.text = "\(movie.movieRating ?? 0)/10"
         
         let apiURL = movie.backgroundImage ?? ""
         let url = URL(string: ApiUrls.basic + apiURL)
-        cell.movieImage.sd_setImage(with: url )
+        movieImage.sd_setImage(with: url )
         
     }
     
